@@ -29,6 +29,8 @@ public class CustomerController {
     @FXML private TableView<Customer> tvCustomerList;
     @FXML private Tab tabEditCustomer;
     @FXML private TabPane tpCustomers;
+    @FXML public ComboBox<Customer> cbCustomerId;
+    @FXML public TextField tfCustomerFirstName;
 
 
     @FXML void initialize() {
@@ -48,16 +50,20 @@ public class CustomerController {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Customer rowData = row.getItem();
+
 //                    System.out.println(rowData);
                     // action
                     tpCustomers.getSelectionModel().select(tabEditCustomer);
+
+                    tfCustomerFirstName.setText(rowData.getCustFirstName());
+
+
                 }
             });
             return row;
         });
 
 
-//         lvCustomer.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
 
