@@ -182,4 +182,9 @@ public class Customer {
     public void setAgentId(int agentId) {
         this.agentId.set(agentId);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getCustomerId());
+    }
 }

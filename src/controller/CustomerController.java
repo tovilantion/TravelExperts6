@@ -9,6 +9,7 @@ import data.CustomerDB;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,22 +17,79 @@ import model.Customer;
 
 public class CustomerController {
 
-    @FXML private ResourceBundle resources;
-    @FXML private URL location;
-    @FXML private TableColumn<Customer, Integer> colCustomerId;
-    @FXML private TableColumn<Customer, String> colCustFirstName;
-    @FXML private TableColumn<Customer, String> colLastName;
-    @FXML private TableColumn<Customer, String> colAddress;
-    @FXML private TableColumn<Customer, String> colPostal;
-    @FXML private TableColumn<Customer, String> colHomePhone;
-    @FXML private TableColumn<Customer, String> colBusPhone;
-    @FXML private TableColumn<Customer, String> colEmail;
-    @FXML private TableView<Customer> tvCustomerList;
-    @FXML private Tab tabEditCustomer;
-    @FXML private TabPane tpCustomers;
+    @FXML
+    private ResourceBundle resources;
+    @FXML
+    private URL location;
+    @FXML
+    private TableColumn<Customer, Integer> colCustomerId;
+    @FXML
+    private TableColumn<Customer, String> colCustFirstName;
+    @FXML
+    private TableColumn<Customer, String> colLastName;
+    @FXML
+    private TableColumn<Customer, String> colAddress;
+    @FXML
+    private TableColumn<Customer, String> colPostal;
+    @FXML
+    private TableColumn<Customer, String> colHomePhone;
+    @FXML
+    private TableColumn<Customer, String> colBusPhone;
+    @FXML
+    private TableColumn<Customer, String> colEmail;
+    @FXML
+    private TableView<Customer> tvCustomerList;
+    @FXML
+    private Tab tabEditCustomer;
+    @FXML
+    private TabPane tpCustomers;
+    @FXML
+    private ComboBox<Customer> cbCustomerId;
+    @FXML
+    private TextField tfCustFirstName;
+    @FXML
+    private TextField tfCustLastName;
+    @FXML
+    private TextField tfCustAddress;
+    @FXML
+    private TextField tfCustCity;
+    @FXML
+    private TextField tfCustProv;
+    @FXML
+    private TextField tfCustPostal;
+    @FXML
+    private TextField tfCustCountry;
+    @FXML
+    private TextField tfCustHomePhone;
+    @FXML
+    private TextField tfCustBusPhone;
+    @FXML
+    private TextField tfCustEmail;
 
 
-    @FXML void initialize() {
+    @FXML
+    void onActionCbCustomerId(ActionEvent event) {
+        // get customer id
+        Customer selectedCustomer = cbCustomerId.getSelectionModel().getSelectedItem();
+        // fill text fields
+        if (selectedCustomer != null) {
+            tfCustFirstName.setText(selectedCustomer.getCustFirstName());
+            tfCustLastName.setText(selectedCustomer.getCustLastName());
+            tfCustAddress.setText(selectedCustomer.getCustAddress());
+            tfCustCity.setText(selectedCustomer.getCustCity());
+            tfCustProv.setText(selectedCustomer.getCustProv());
+            tfCustPostal.setText(selectedCustomer.getCustPostal());
+            tfCustCountry.setText(selectedCustomer.getCustCountry());
+            tfCustHomePhone.setText(selectedCustomer.getCustHomePhone());
+            tfCustBusPhone.setText(selectedCustomer.getCustBusPhone());
+            tfCustEmail.setText(selectedCustomer.getCustEmail());
+        }
+    }
+
+    @FXML
+    void initialize() {
+        loadCustomers();
+        //load data in customer list table
         ObservableList<Customer> customers = CustomerDB.getCustomers();
         colCustomerId.setCellValueFactory(new PropertyValueFactory<Customer, Integer>("customerId"));
         colCustFirstName.setCellValueFactory(new PropertyValueFactory<Customer, String>("custFirstName"));
@@ -43,22 +101,23 @@ public class CustomerController {
         colEmail.setCellValueFactory(new PropertyValueFactory<Customer, String>("custEmail"));
         tvCustomerList.setItems(customers);
 
+        //on cell double click, redirects to edit customer tab and display customer data
         tvCustomerList.setRowFactory(tv -> {
             TableRow<Customer> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Customer rowData = row.getItem();
-//                    System.out.println(rowData);
-                    // action
                     tpCustomers.getSelectionModel().select(tabEditCustomer);
+                    cbCustomerId.getSelectionModel().select(rowData);
                 }
             });
             return row;
         });
-
-
-//         lvCustomer.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
-
+    //load data in edit customer combo box
+    private void loadCustomers() {
+        ObservableList<Customer> customers = CustomerDB.getCustomers();
+        cbCustomerId.setItems(customers);
+    }
 }

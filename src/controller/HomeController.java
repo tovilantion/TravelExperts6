@@ -44,13 +44,11 @@ public class HomeController {
         Pane pane = FXMLLoader.load(getClass().getResource("../views/customer.fxml"));
         pnlCustomer.getChildren().setAll(pane);
         pnlCustomer.toFront();
-        //pnlCustomer.setVisible(true);
 
     }
 
     @FXML void onActionBtnDashboard(ActionEvent event) throws IOException {
         pnlDashboard.toFront();
-        //pnlCustomer.setVisible(false);
     }
 
     @FXML void onActionBtnInvoices(ActionEvent event) throws IOException {
@@ -81,50 +79,3 @@ public class HomeController {
     }
 }
 
-
-//        Node[] nodes = new Node[10];
-//        for (int i = 0; i < nodes.length; i++) {
-//            try {
-//
-//                final int j = i;
-//                nodes[i] = FXMLLoader.load(getClass().getResource("Item.fxml"));
-//
-//                //give the items some effect
-//
-//                nodes[i].setOnMouseEntered(event -> {
-//                    nodes[j].setStyle("-fx-background-color : #0A0E3F");
-//                });
-//                nodes[i].setOnMouseExited(event -> {
-//                    nodes[j].setStyle("-fx-background-color : #02030A");
-//                });
-//                pnItems.getChildren().add(nodes[i]);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
-//    }
-//
-//
-//    public void handleClicks(ActionEvent actionEvent) throws IOException {
-//        if (actionEvent.getSource() == btnCustomers) {
-//            pnlCustomer.setStyle("-fx-background-color : #1620A1");
-//            pnlCustomer.toFront();
-//        }
-//        if (actionEvent.getSource() == btnMenus) {
-//            pnlMenus.setStyle("-fx-background-color : #53639F");
-//            pnlMenus.toFront();
-//        }
-//        if (actionEvent.getSource() == btnOverview) {
-//            pnlOverview.setStyle("-fx-background-color : white");
-//            pnlOverview.toFront();
-//        }
-//        if(actionEvent.getSource()==btnOrders)
-//        {
-//            Pane pane = FXMLLoader.load(getClass().getResource("customer.fxml"));
-//            pnlOverview.getChildren().setAll(pane);
-//            //pnlOrders.setStyle("-fx-background-color : #464F67");
-//            //pnlOrders.toFront();
-//        }
-//    }
-//}

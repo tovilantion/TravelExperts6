@@ -11,14 +11,14 @@ import java.sql.*;
 public class CustomerDB {
     public static ObservableList<Customer> getCustomers(){
         ObservableList<Customer>customers = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM CUSTOMERS";
-        try {
-            //get connection
-            Connection conn = ConnectionDB.getConnection();
-            //create statement
-            Statement statement = conn.createStatement();
-            //execute query
-            ResultSet rs = statement.executeQuery(sql);
+            String sql = "SELECT * FROM CUSTOMERS";
+            try {
+                //get connection
+                Connection conn = ConnectionDB.getConnection();
+                //create statement
+                Statement statement = conn.createStatement();
+                //execute query
+                ResultSet rs = statement.executeQuery(sql);
 
             //loop through each row in resultset and create object with values from rs and add to list
             while (rs.next()){
@@ -67,6 +67,4 @@ public class CustomerDB {
         }
         return rowsUpdated;
     }
-
-
 }

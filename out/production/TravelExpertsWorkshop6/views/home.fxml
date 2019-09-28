@@ -135,12 +135,12 @@
         </VBox>
         <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane fx:id="pnlInvoices" prefHeight="728.0" prefWidth="752.0" />
-                <Pane fx:id="pnlCustomer" prefHeight="728.0" prefWidth="752.0" />
-                <Pane fx:id="pnlBookings" prefHeight="728.0" prefWidth="752.0" />
-                <Pane fx:id="pnlPackages" prefHeight="728.0" prefWidth="752.0" />
-                <Pane fx:id="pnlSuppliers" prefHeight="728.0" prefWidth="752.0" />
-                <Pane fx:id="pnlDashboard" prefHeight="728.0" prefWidth="752.0" style="-fx-background-color: white;">
+                <Pane fx:id="pnlInvoices" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlCustomer" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlBookings" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlPackages" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlSuppliers" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlDashboard" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;">
                     <children>
                         <TextField layoutX="577.0" layoutY="29.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 2em;" />
                         <Label layoutX="18.0" layoutY="25.0" text="Dashboard" textFill="#616161">
