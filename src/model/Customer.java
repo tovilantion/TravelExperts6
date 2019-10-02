@@ -18,6 +18,7 @@ public class Customer {
     private SimpleStringProperty custEmail;
     private SimpleIntegerProperty agentId;
 
+
     public Customer(int customerId, String custFirstName,
                     String custLastName, String custAddress,
                     String custCity, String custProv,
@@ -37,6 +38,47 @@ public class Customer {
         this.custBusPhone = new SimpleStringProperty(custBusPhone);
         this.custEmail = new SimpleStringProperty(custEmail);
         this.agentId = new SimpleIntegerProperty(agentId);
+    }
+
+    public Customer() {};
+    public Customer(String custFirstName,
+                    String custLastName, String custAddress,
+                    String custCity, String custProv,
+                    String custPostal, String custCountry,
+                    String custHomePhone, String custBusPhone,
+                    String custEmail) {
+
+        this.custFirstName = new SimpleStringProperty(custFirstName);
+        this.custLastName = new SimpleStringProperty(custLastName);
+        this.custAddress = new SimpleStringProperty(custAddress);
+        this.custCity = new SimpleStringProperty(custCity);
+        this.custProv = new SimpleStringProperty(custProv);
+        this.custPostal = new SimpleStringProperty(custPostal);
+        this.custCountry = new SimpleStringProperty(custCountry);
+        this.custHomePhone = new SimpleStringProperty(custHomePhone);
+        this.custBusPhone = new SimpleStringProperty(custBusPhone);
+        this.custEmail = new SimpleStringProperty(custEmail);
+    }
+
+    public Customer(String custFirstName,
+                    String custLastName, String custAddress,
+                    String custCity, String custProv,
+                    String custPostal, String custCountry,
+                    String custHomePhone, String custBusPhone,
+                    String custEmail,int agentId) {
+
+        this.custFirstName = new SimpleStringProperty(custFirstName);
+        this.custLastName = new SimpleStringProperty(custLastName);
+        this.custAddress = new SimpleStringProperty(custAddress);
+        this.custCity = new SimpleStringProperty(custCity);
+        this.custProv = new SimpleStringProperty(custProv);
+        this.custPostal = new SimpleStringProperty(custPostal);
+        this.custCountry = new SimpleStringProperty(custCountry);
+        this.custHomePhone = new SimpleStringProperty(custHomePhone);
+        this.custBusPhone = new SimpleStringProperty(custBusPhone);
+        this.custEmail = new SimpleStringProperty(custEmail);
+        this.agentId = new SimpleIntegerProperty(agentId);
+
     }
 
     public int getCustomerId() {

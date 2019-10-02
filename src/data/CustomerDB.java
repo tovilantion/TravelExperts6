@@ -52,12 +52,24 @@ public class CustomerDB {
             // get connection
             Connection connection = ConnectionDB.getConnection();
             // update query
-            String updateQuery = "UPDATE CUSTOMERS SET CUSTFIRSTNAME = ?, CUSTLASTNAME = ? WHERE CUSTOMERID = ?";
+            String updateQuery = "UPDATE `customers` SET `CustFirstName`=?," +
+                    "`CustLastName`=?,`CustAddress`=?,`CustCity`=?," +
+                    "`CustProv`=?,`CustPostal`=?,`CustCountry`=?," +
+                    "`CustHomePhone`=?,`CustBusPhone`=?,`CustEmail`=? " +
+                    "WHERE CustomerId=?";
             // prepare statement
             PreparedStatement statement = connection.prepareStatement(updateQuery);
             statement.setString(1, customer.getCustFirstName());
             statement.setString(2, customer.getCustLastName());
-            statement.setInt(3, customerId);
+            statement.setString(3,customer.getCustAddress());
+            statement.setString(4,customer.getCustCity());
+            statement.setString(5,customer.getCustProv());
+            statement.setString(6,customer.getCustPostal());
+            statement.setString(7,customer.getCustCountry());
+            statement.setString(8,customer.getCustHomePhone());
+            statement.setString(9,customer.getCustBusPhone());
+            statement.setString(10,customer.getCustEmail());
+            statement.setInt(11,customerId);
 
             // execute
             rowsUpdated = statement.executeUpdate();
@@ -67,4 +79,51 @@ public class CustomerDB {
         }
         return rowsUpdated;
     }
+
+    public static int deleteCustomer(int customerId){
+        int rowsDeleted = 0;
+
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            //delete query
+            String deleteQuery = "DELETE FROM `customers` WHERE CustomerId=?";
+
+            PreparedStatement statement = connection.prepareStatement(deleteQuery);
+            statement.setInt(1, customerId);
+            rowsDeleted = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsDeleted;
+
+    }
+
+    public static int addCustomer(Customer customer){
+        int rowsInserted = 0;
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            String insertQuery = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, " +
+                    "`CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustCountry`, `CustHomePhone`, " +
+                    "`CustBusPhone`, `CustEmail`,`AgentId`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setString(1, customer.getCustFirstName());
+            statement.setString(2, customer.getCustLastName());
+            statement.setString(3,customer.getCustAddress());
+            statement.setString(4,customer.getCustCity());
+            statement.setString(5,customer.getCustProv());
+            statement.setString(6,customer.getCustPostal());
+            statement.setString(7,customer.getCustCountry());
+            statement.setString(8,customer.getCustHomePhone());
+            statement.setString(9,customer.getCustBusPhone());
+            statement.setString(10,customer.getCustEmail());
+            statement.setInt(11,customer.getAgentId());
+
+            rowsInserted =statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsInserted;
+    }
+
 }

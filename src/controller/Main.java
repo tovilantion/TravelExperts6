@@ -9,13 +9,14 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
     private double x, y;
-
+    static Stage stg;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
-        primaryStage.setScene(new Scene(root));
+        this.stg = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
+        stg.setScene(new Scene(root));
         //set stage borderless
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+        stg.initStyle(StageStyle.UNDECORATED);
 
         //drag it here
         root.setOnMousePressed(event -> {
@@ -24,8 +25,8 @@ public class Main extends Application {
         });
         root.setOnMouseDragged(event -> {
 
-            primaryStage.setX(event.getScreenX() - x);
-            primaryStage.setY(event.getScreenY() - y);
+            stg.setX(event.getScreenX() - x);
+            stg.setY(event.getScreenY() - y);
 
         });
         primaryStage.show();

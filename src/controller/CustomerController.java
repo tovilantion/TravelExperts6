@@ -1,21 +1,19 @@
 package controller;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import data.CustomerDB;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Customer;
+import sun.management.Agent;
 
 public class CustomerController {
+
 
     @FXML
     private ResourceBundle resources;
@@ -65,7 +63,106 @@ public class CustomerController {
     private TextField tfCustBusPhone;
     @FXML
     private TextField tfCustEmail;
+    @FXML
+    private Tab tabAddCustomer;
+    @FXML
+    private TextField tfCustFirstNameAdd;
+    @FXML
+    private TextField tfCustLastNameAdd;
+    @FXML
+    private TextField tfCustAddressAdd;
+    @FXML
+    private TextField tfCustCityAdd;
+    @FXML
+    private TextField tfCustProvAdd;
+    @FXML
+    private TextField tfCustPostalAdd;
+    @FXML
+    private TextField tfCustCountryAdd;
+    @FXML
+    private TextField tfCustHomePhoneAdd;
+    @FXML
+    private TextField tfCustBusPhoneAdd;
+    @FXML
+    private TextField tfCustEmailAdd;
+    @FXML
+    private TextField tfAgentIdAdd;
+    @FXML
+    private Button btnAdd;
 
+    @FXML
+    void onActionBtnCustomerAdd(ActionEvent event) {
+        Customer customer = new Customer(
+                tfCustFirstNameAdd.getText(),
+                tfCustLastNameAdd.getText(),
+                tfCustAddressAdd.getText(),
+                tfCustCityAdd.getText(),
+                tfCustProvAdd.getText(),
+                tfCustPostalAdd.getText(),
+                tfCustCountryAdd.getText(),
+                tfCustHomePhoneAdd.getText(),
+                tfCustBusPhoneAdd.getText(),
+                tfCustEmailAdd.getText(),
+                Integer.valueOf(tfAgentIdAdd.getText()));
+        int rowsInserted = CustomerDB.addCustomer(customer);
+        if (rowsInserted == 0) {
+            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add customer");
+            alertError.showAndWait();
+        } else {
+            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Insert successful");
+            alertSuccess.showAndWait();
+        }
+    }
+
+    @FXML
+    void onActionBtnDelete(ActionEvent event) {
+        //TODO: pass delete bookings in deletecustomer method to delete both customer and customer bookings (constraint)
+        int customerId = cbCustomerId.getSelectionModel().getSelectedItem().getCustomerId();
+        int rowsDeleted = CustomerDB.deleteCustomer(customerId);
+        if (rowsDeleted == 0) {
+            Alert alertError = new Alert(Alert.AlertType.ERROR, "Delete failed");
+            alertError.showAndWait();
+        } else {
+
+            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Delete successful");
+            alertSuccess.showAndWait();
+            loadCustomers();
+            clearFields();
+        }
+    }
+
+    @FXML
+    void onActionBtnEdit(ActionEvent event) {
+        enableTextFields();
+    }
+
+    //Save customer
+    @FXML
+    void onActionBtnSave(ActionEvent event) {
+        int customerId = cbCustomerId.getSelectionModel().getSelectedItem().getCustomerId();
+        Customer customer = new Customer(
+                tfCustFirstName.getText(),
+                tfCustLastName.getText(),
+                tfCustAddress.getText(),
+                tfCustCity.getText(),
+                tfCustProv.getText(),
+                tfCustPostal.getText(),
+                tfCustCountry.getText(),
+                tfCustHomePhone.getText(),
+                tfCustBusPhone.getText(),
+                tfCustEmail.getText());
+        int rowsUpdated = CustomerDB.updateCustomer(customerId, customer);
+        if (rowsUpdated == 0) {
+            Alert alertError = new Alert(Alert.AlertType.ERROR, "Update failed");
+            alertError.showAndWait();
+        } else {
+            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Update successful");
+            alertSuccess.showAndWait();
+            //on update, reloads data to textfields
+            loadCustomers();
+        }
+
+    }
 
     @FXML
     void onActionCbCustomerId(ActionEvent event) {
@@ -120,4 +217,57 @@ public class CustomerController {
         ObservableList<Customer> customers = CustomerDB.getCustomers();
         cbCustomerId.setItems(customers);
     }
+
+    //enables text fields
+    private void enableTextFields() {
+        tfCustFirstName.setDisable(false);
+        tfCustLastName.setDisable(false);
+        tfCustAddress.setDisable(false);
+        tfCustCity.setDisable(false);
+        tfCustProv.setDisable(false);
+        tfCustPostal.setDisable(false);
+        tfCustCountry.setDisable(false);
+        tfCustHomePhone.setDisable(false);
+        tfCustBusPhone.setDisable(false);
+        tfCustEmail.setDisable(false);
+
+        tfCustFirstName.setEditable(true);
+        tfCustLastName.setEditable(true);
+        tfCustAddress.setEditable(true);
+        tfCustCity.setEditable(true);
+        tfCustProv.setEditable(true);
+        tfCustPostal.setEditable(true);
+        tfCustCountry.setEditable(true);
+        tfCustHomePhone.setEditable(true);
+        tfCustBusPhone.setEditable(true);
+        tfCustEmail.setEditable(true);
+    }
+
+    private void clearFields() {
+        tfCustFirstName.clear();
+        tfCustLastName.clear();
+        tfCustAddress.clear();
+        tfCustCity.clear();
+        tfCustProv.clear();
+        tfCustPostal.clear();
+        tfCustCountry.clear();
+        tfCustHomePhone.clear();
+        tfCustBusPhone.clear();
+        tfCustEmail.clear();
+    }
+
+    private void clearFieldsAdd() {
+        tfCustFirstNameAdd.clear();
+        tfCustLastNameAdd.clear();
+        tfCustAddress.clear();
+        tfCustCityAdd.clear();
+        tfCustProvAdd.clear();
+        tfCustPostalAdd.clear();
+        tfCustCountryAdd.clear();
+        tfCustHomePhoneAdd.clear();
+        tfCustBusPhoneAdd.clear();
+        tfCustEmailAdd.clear();
+        tfAgentIdAdd.clear();
+    }
 }
+
