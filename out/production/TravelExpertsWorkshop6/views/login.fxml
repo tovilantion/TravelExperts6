@@ -11,19 +11,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AgentController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" style="-fx-background-color: #fff; -fx-border-color: #e0e0e0;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AgentController">
     <children>
         <Pane layoutX="503.0" layoutY="36.0" prefHeight="432.0" prefWidth="289.0" AnchorPane.bottomAnchor="35.0" AnchorPane.topAnchor="36.0">
             <children>
                 <TextField fx:id="txtUsername" layoutX="7.0" layoutY="122.0" prefHeight="34.0" prefWidth="275.0" promptText="username or email" />
                 <PasswordField fx:id="txtPassword" layoutX="5.0" layoutY="180.0" prefHeight="34.0" prefWidth="275.0" promptText="password" />
-                <Button fx:id="btnSignin" layoutX="144.0" layoutY="266.0" mnemonicParsing="false" onAction="#onActionBtnSignIn" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="137.0" style="-fx-border-radius: 4000;"  text="Sign in" />
+                <Button fx:id="btnSignin" layoutX="144.0" layoutY="266.0" mnemonicParsing="false" onAction="#onActionBtnSignIn" onMouseClicked="#handleButtonAction" prefHeight="34.0" prefWidth="137.0" style="-fx-border-radius: 4000;" text="Sign in" />
                 <Label fx:id="btnForgot" alignment="CENTER" layoutX="6.0" layoutY="271.0" prefHeight="23.0" prefWidth="104.0" text="Forgot Password">
                     <font>
                         <Font name="Segoe UI" size="12.0" />
                     </font>
                 </Label>
-                <Button fx:id="btnSignup" layoutX="2.0" layoutY="354.0" mnemonicParsing="false" onAction="#onActonBtnSignUp" prefHeight="34.0" prefWidth="275.0"  text="Sign up" />
+                <Button fx:id="btnSignup" layoutX="2.0" layoutY="354.0" mnemonicParsing="false" onAction="#onActonBtnSignUp" prefHeight="34.0" prefWidth="275.0" text="Sign up" />
                 <Separator layoutX="6.0" layoutY="330.0" prefHeight="7.0" prefWidth="275.0" />
                 <Label alignment="CENTER" layoutX="126.0" layoutY="224.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
                     <font>

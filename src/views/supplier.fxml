@@ -9,23 +9,23 @@
 
 <AnchorPane prefHeight="576.0" prefWidth="792.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierController">
     <children>
-        <TabPane layoutX="-2.0" layoutY="-1.0" prefHeight="243.0" prefWidth="322.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TabPane fx:id="tpSuppliers" layoutX="-2.0" layoutY="-1.0" prefHeight="243.0" prefWidth="322.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab text="Supplier List">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView layoutX="178.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="tvSupplierList" layoutX="178.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="colSupplierId" prefWidth="75.0" text="Id" />
+                                        <TableColumn fx:id="colSupName" prefWidth="250.0" text="First Name" />
                                     </columns>
                                 </TableView>
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Edit Supplier">
+                <Tab fx:id="tabEditSupplier" text="Edit Supplier">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>

@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
+<AnchorPane prefHeight="600.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
     <children>
-        <TabPane fx:id="tpCustomers" prefHeight="620.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TabPane fx:id="tpCustomers" accessibleRole="PARENT" prefHeight="620.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab text="Customer List">
                     <content>
@@ -184,18 +184,14 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox layoutX="14.0" layoutY="316.0" prefHeight="33.0" prefWidth="452.0" spacing="150.0">
-                           <children>
-                              <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" />
-                              <Button fx:id="btnSave" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" />
-                              <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" />
-                           </children>
-                        </HBox>
                         <Label layoutX="14.0" layoutY="14.0" text="Edit Customer Information">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btnEdit" layoutX="120.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" />
+                        <Button fx:id="btnDelete" layoutX="306.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" />
+                        <Button fx:id="btnSave" layoutX="214.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" />
                             </children></AnchorPane>
                     </content>
                 </Tab>

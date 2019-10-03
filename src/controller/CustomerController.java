@@ -13,82 +13,43 @@ import model.Customer;
 import sun.management.Agent;
 
 public class CustomerController {
-
-
-    @FXML
-    private ResourceBundle resources;
-    @FXML
-    private URL location;
-    @FXML
-    private TableColumn<Customer, Integer> colCustomerId;
-    @FXML
-    private TableColumn<Customer, String> colCustFirstName;
-    @FXML
-    private TableColumn<Customer, String> colLastName;
-    @FXML
-    private TableColumn<Customer, String> colAddress;
-    @FXML
-    private TableColumn<Customer, String> colPostal;
-    @FXML
-    private TableColumn<Customer, String> colHomePhone;
-    @FXML
-    private TableColumn<Customer, String> colBusPhone;
-    @FXML
-    private TableColumn<Customer, String> colEmail;
-    @FXML
-    private TableView<Customer> tvCustomerList;
-    @FXML
-    private Tab tabEditCustomer;
-    @FXML
-    private TabPane tpCustomers;
-    @FXML
-    private ComboBox<Customer> cbCustomerId;
-    @FXML
-    private TextField tfCustFirstName;
-    @FXML
-    private TextField tfCustLastName;
-    @FXML
-    private TextField tfCustAddress;
-    @FXML
-    private TextField tfCustCity;
-    @FXML
-    private TextField tfCustProv;
-    @FXML
-    private TextField tfCustPostal;
-    @FXML
-    private TextField tfCustCountry;
-    @FXML
-    private TextField tfCustHomePhone;
-    @FXML
-    private TextField tfCustBusPhone;
-    @FXML
-    private TextField tfCustEmail;
-    @FXML
-    private Tab tabAddCustomer;
-    @FXML
-    private TextField tfCustFirstNameAdd;
-    @FXML
-    private TextField tfCustLastNameAdd;
-    @FXML
-    private TextField tfCustAddressAdd;
-    @FXML
-    private TextField tfCustCityAdd;
-    @FXML
-    private TextField tfCustProvAdd;
-    @FXML
-    private TextField tfCustPostalAdd;
-    @FXML
-    private TextField tfCustCountryAdd;
-    @FXML
-    private TextField tfCustHomePhoneAdd;
-    @FXML
-    private TextField tfCustBusPhoneAdd;
-    @FXML
-    private TextField tfCustEmailAdd;
-    @FXML
-    private TextField tfAgentIdAdd;
-    @FXML
-    private Button btnAdd;
+    @FXML private ResourceBundle resources;
+    @FXML private URL location;
+    @FXML private TableColumn<Customer, Integer> colCustomerId;
+    @FXML private TableColumn<Customer, String> colCustFirstName;
+    @FXML private TableColumn<Customer, String> colLastName;
+    @FXML private TableColumn<Customer, String> colAddress;
+    @FXML private TableColumn<Customer, String> colPostal;
+    @FXML private TableColumn<Customer, String> colHomePhone;
+    @FXML private TableColumn<Customer, String> colBusPhone;
+    @FXML private TableColumn<Customer, String> colEmail;
+    @FXML private TableView<Customer> tvCustomerList;
+    @FXML private Tab tabEditCustomer;
+    @FXML private TabPane tpCustomers;
+    @FXML private ComboBox<Customer> cbCustomerId;
+    @FXML private TextField tfCustFirstName;
+    @FXML private TextField tfCustLastName;
+    @FXML private TextField tfCustAddress;
+    @FXML private TextField tfCustCity;
+    @FXML private TextField tfCustProv;
+    @FXML private TextField tfCustPostal;
+    @FXML private TextField tfCustCountry;
+    @FXML private TextField tfCustHomePhone;
+    @FXML private TextField tfCustBusPhone;
+    @FXML private TextField tfCustEmail;
+    @FXML private Tab tabAddCustomer;
+    @FXML private TextField tfCustFirstNameAdd;
+    @FXML private TextField tfCustLastNameAdd;
+    @FXML private TextField tfCustAddressAdd;
+    @FXML private TextField tfCustCityAdd;
+    @FXML private TextField tfCustProvAdd;
+    @FXML private TextField tfCustPostalAdd;
+    @FXML private TextField tfCustCountryAdd;
+    @FXML private TextField tfCustHomePhoneAdd;
+    @FXML private TextField tfCustBusPhoneAdd;
+    @FXML private TextField tfCustEmailAdd;
+    @FXML private TextField tfAgentIdAdd;
+    @FXML private Button btnAdd;
 
     @FXML
     void onActionBtnCustomerAdd(ActionEvent event) {
@@ -198,7 +159,7 @@ public class CustomerController {
         colEmail.setCellValueFactory(new PropertyValueFactory<Customer, String>("custEmail"));
         tvCustomerList.setItems(customers);
 
-        //on cell double click, redirects to edit customer tab and display customer data
+        //on cell double click, redirects to edit customer tab and display selected customer data
         tvCustomerList.setRowFactory(tv -> {
             TableRow<Customer> row = new TableRow<>();
             row.setOnMouseClicked(event -> {

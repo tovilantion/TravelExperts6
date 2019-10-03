@@ -38,6 +38,7 @@ public class HomeController {
         Pane pane = FXMLLoader.load(getClass().getResource("../views/booking.fxml"));
         pnlBookings.getChildren().setAll(pane);
         pnlBookings.toFront();
+
     }
 
     @FXML void onActionBtnCustomers(ActionEvent event) throws IOException {
