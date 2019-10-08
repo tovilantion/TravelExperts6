@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -39,7 +40,56 @@
                 </Tab>
                 <Tab fx:id="tabEditPackage" text="Edit Package">
                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ComboBox fx:id="cbPackageId" layoutX="321.0" layoutY="75.0" onAction="#loadComboBox" prefWidth="150.0" />
+                                <TextField fx:id="tfPkgName" layoutX="172.0" layoutY="146.0" />
+                                <Label layoutX="121.0" layoutY="147.0" prefHeight="24.0" prefWidth="38.0" text="Name" />
+                                <TextField fx:id="tfPkgBasePrice" layoutX="502.0" layoutY="146.0" prefHeight="25.0" prefWidth="134.0" />
+                                <TextField fx:id="tfPkgAgencyCommission" layoutX="502.0" layoutY="200.0" prefHeight="25.0" prefWidth="135.0" />
+                                <Label layoutX="97.0" layoutY="200.0" prefHeight="24.0" prefWidth="62.0" text="Start Date" />
+                                <Label layoutX="98.0" layoutY="262.0" prefHeight="24.0" prefWidth="61.0" text="End Date" />
+                                <Label layoutX="412.0" layoutY="147.0" prefHeight="24.0" prefWidth="59.0" text="Base Price" />
+                                <Label layoutX="360.0" layoutY="200.0" prefHeight="24.0" prefWidth="111.0" text="Agency Commission" />
+                                <Label layoutX="404.0" layoutY="262.0" prefHeight="24.0" prefWidth="67.0" text="Description" />
+                                <DatePicker fx:id="dpPkgStartDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
+                                <DatePicker fx:id="dpPkgEndDate" layoutX="173.0" layoutY="262.0" prefHeight="25.0" prefWidth="148.0" />
+                                <TextArea fx:id="taPkgDesc" layoutX="483.0" layoutY="262.0" prefHeight="109.0" prefWidth="155.0" />
+                                <Button fx:id="btnEdit" layoutX="295.0" layoutY="425.0" mnemonicParsing="false" onAction="#editPackage" text="Edit" />
+                                <Button fx:id="btnSave" layoutX="419.0" layoutY="425.0" mnemonicParsing="false" onAction="#savePackage" text="Save" />
+                                <Label layoutX="490.0" layoutY="147.0" prefHeight="24.0" prefWidth="12.0" text="\$">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="490.0" layoutY="200.0" prefHeight="24.0" prefWidth="12.0" text="\$">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabEditPackage1" text="Add Package">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="tfAddPkgName" layoutX="172.0" layoutY="146.0" />
+                                <Label layoutX="121.0" layoutY="147.0" prefHeight="24.0" prefWidth="38.0" text="Name" />
+                                <TextField fx:id="tfAddPkgBasePrice" layoutX="483.0" layoutY="146.0" />
+                                <TextField fx:id="tfAddPkgAgencyCommission" layoutX="483.0" layoutY="199.0" />
+                                <Label layoutX="97.0" layoutY="200.0" prefHeight="24.0" prefWidth="62.0" text="Start Date" />
+                                <Label layoutX="98.0" layoutY="262.0" prefHeight="24.0" prefWidth="61.0" text="End Date" />
+                                <Label layoutX="412.0" layoutY="147.0" prefHeight="24.0" prefWidth="59.0" text="Base Price" />
+                                <Label layoutX="360.0" layoutY="200.0" prefHeight="24.0" prefWidth="111.0" text="Agency Commission" />
+                                <Label layoutX="404.0" layoutY="262.0" prefHeight="24.0" prefWidth="67.0" text="Description" />
+                                <DatePicker fx:id="dpAddPkgStartDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
+                                <DatePicker fx:id="dpAddPkgEndDate" layoutX="173.0" layoutY="262.0" prefHeight="25.0" prefWidth="148.0" />
+                                <TextArea fx:id="taAddPkgDesc" layoutX="483.0" layoutY="262.0" prefHeight="109.0" prefWidth="155.0" />
+                                <Button fx:id="btnAdd" layoutX="412.0" layoutY="427.0" mnemonicParsing="false" onAction="#addPackage" text="Add" />
+                                <Button fx:id="btnClear" layoutX="321.0" layoutY="427.0" mnemonicParsing="false" onAction="#clearFields" text="Clear" />
+                            </children>
+                        </AnchorPane>
                     </content>
                 </Tab>
             </tabs>

@@ -1,0 +1,80 @@
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: e0e0e0;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: white;
+}
+
+.text-field
+{
+    -fx-background-color: white;
+    -fx-text-box-border: black;
+    -fx-background-radius: 2em;
+    -fx-border-color: #e0e0e0 ;
+    -fx-border-radius: 2em;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler
+{
+    -fx-stroke: transparent;
+    -fx-size:50;
+    -fx-alignment: CENTER ;
+    -fx-text-alignment: center;
+    -fx-background-color: white;
+}
+.table-row-cell:filled:hover
+{
+    -fx-size:50;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: center;
+}
+.table-view:row-selection
+{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: center;
+}
+
+.table-view .table-column
+{
+    -fx-text-alignment: center;
+    -fx-alignment: CENTER;
+}
+
+.table-cell:focused {
+    -fx-border-color: #FAFCFB;
+}
+.table-row-cell:hover {
+    -fx-background-color: #3FE387;
+}
+
+.table-view:hover {
+    -fx-border-color: #3FE387;
+}

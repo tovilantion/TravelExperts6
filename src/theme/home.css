@@ -1,0 +1,51 @@
+.button
+{
+    -fx-background-color : white;
+    -fx-text-fill : #616161;
+}
+.button:hover{
+    -fx-background-color : #e0e0e0;
+}
+.button:pressed
+{
+    -fx-background-color : #e0e0e0;
+}
+
+/*.tab .tab-label {*/
+/*    -fx-background-color: transparent;*/
+/*    -fx-alignment: CENTER;*/
+/*    -fx-text-fill: #e0e0e0;*/
+/*}*/
+
+
+.tab{
+    -fx-background-color: #FFFFFF;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+    -fx-padding: 0 30 0 30;
+}
+
+.tab:selected
+{
+    -fx-background-color: #FAFCFB;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-width: 5 0 0 0;
+    -fx-border-color: #3FE387;
+}
+
+.tab:focused
+{
+    -fx-focus-color: transparent;
+}
+
+.tab-pane *.tab-header-background
+{
+    -fx-background-color: transparent;
+}
+
+.tab:selected .focus-indicator
+{
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}

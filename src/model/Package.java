@@ -81,7 +81,7 @@ public class Package {
 
 
     public String getPkgDesc(){
-        return PkgStartDate.get();
+        return PkgDesc.get();
     }
 
     public SimpleStringProperty getPkgDescProperty(){
@@ -115,4 +115,11 @@ public class Package {
     public void setPkgAgencyCommission(Double PkgAgencyCommission){
         this.PkgAgencyCommission.set(PkgAgencyCommission);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getPackageId());
+    }
+
+
 }

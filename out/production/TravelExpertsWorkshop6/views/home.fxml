@@ -19,7 +19,7 @@
     <children>
         <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: white; -fx-border-color: #E0E0E0;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <VBox alignment="CENTER" prefHeight="31.0" prefWidth="224.0" style="-fx-border-color: #e0e0e0;">
+                <VBox alignment="CENTER" prefHeight="31.0" prefWidth="254.0" style="-fx-border-color: #e0e0e0;">
                     <children>
                         <ImageView fitHeight="164.0" fitWidth="126.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -39,7 +39,7 @@
                 <AnchorPane prefHeight="77.0" prefWidth="439.0" style="-fx-border-color: #e0e0e0;" />
                 <VBox prefHeight="340.0" prefWidth="249.0" style="-fx-border-color: #e0e0e0;">
                     <children>
-                        <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnDashboard" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Dashboard" textFill="#616161" VBox.vgrow="ALWAYS">
+                        <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnDashboard" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Dashboard" textFill="#616161" VBox.vgrow="ALWAYS">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -57,7 +57,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnCustomers" prefHeight="42.0" prefWidth="397.0" stylesheets="@../theme/style.css" text="Customers">
+                        <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnCustomers" prefHeight="42.0" prefWidth="397.0" stylesheets="@../theme/home.css" text="Customers">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -69,7 +69,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnBookings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnBookings" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Bookings">
+                        <Button fx:id="btnBookings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnBookings" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Bookings">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -81,7 +81,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnPackages" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Packages" VBox.vgrow="ALWAYS">
+                        <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnPackages" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Packages" VBox.vgrow="ALWAYS">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -93,7 +93,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnSuppliers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnSuppliers" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Suppliers">
+                        <Button fx:id="btnSuppliers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnSuppliers" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Suppliers">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -105,7 +105,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnInvoices" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnInvoices" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Invoices">
+                        <Button fx:id="btnInvoices" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnInvoices" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Invoices">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -117,7 +117,7 @@
                                 <Insets left="50.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnSignOut" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/style.css" text="Sign Out">
+                        <Button fx:id="btnSignOut" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#onActionBtnSignOut" prefHeight="42.0" prefWidth="259.0" stylesheets="@../theme/home.css" text="Sign Out">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -135,11 +135,11 @@
         </VBox>
         <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane fx:id="pnlInvoices" prefHeight="576.0" prefWidth="752.0" />
-                <Pane fx:id="pnlCustomer" prefHeight="576.0" prefWidth="752.0" />
-                <Pane fx:id="pnlBookings" prefHeight="576.0" prefWidth="752.0" />
-                <Pane fx:id="pnlPackages" prefHeight="576.0" prefWidth="752.0" />
-                <Pane fx:id="pnlSuppliers" prefHeight="576.0" prefWidth="752.0" />
+                <Pane fx:id="pnlInvoices" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
+                <Pane fx:id="pnlCustomer" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
+                <Pane fx:id="pnlBookings" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
+                <Pane fx:id="pnlPackages" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
+                <Pane fx:id="pnlSuppliers" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
                 <Pane fx:id="pnlDashboard" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;">
                     <children>
                         <TextField layoutX="577.0" layoutY="29.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 2em;" />

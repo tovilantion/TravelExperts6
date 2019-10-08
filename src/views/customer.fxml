@@ -14,15 +14,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
+<AnchorPane prefHeight="600.0" prefWidth="792.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
     <children>
-        <TabPane fx:id="tpCustomers" accessibleRole="PARENT" prefHeight="620.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TabPane fx:id="tpCustomers" accessibleRole="PARENT" layoutY="14.0" prefHeight="620.0" prefWidth="606.0" stylesheets="@../theme/home.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
             <tabs>
-                <Tab text="Customer List">
+                <Tab closable="false" text="Customer List">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="694.0">
                             <children>
-                                <TableView fx:id="tvCustomerList" layoutY="-2.0" prefHeight="400.0" prefWidth="846.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="tvCustomerList" layoutY="62.0" prefHeight="506.0" prefWidth="792.0" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
                                     <columns>
                                         <TableColumn fx:id="colCustomerId" prefWidth="75.0" text="Id" />
                                         <TableColumn fx:id="colCustFirstName" prefWidth="75.0" text="First Name" />
@@ -37,6 +37,7 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
+                        <TextField layoutX="14.0" layoutY="14.0" promptText="search" stylesheets="@../theme/table.css" AnchorPane.rightAnchor="629.0" AnchorPane.topAnchor="20.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -337,6 +338,7 @@
                                     </font>
                                 </Label>
                                   <Button fx:id="btnAdd" layoutX="121.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionBtnCustomerAdd" prefHeight="30.0" prefWidth="54.0" text="Save" />
+                        <VBox layoutX="558.0" layoutY="15.0" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
