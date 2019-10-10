@@ -1,19 +1,13 @@
 package controller;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import data.BookingDB;
-import data.CustomerDB;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import model.Booking;
 
 

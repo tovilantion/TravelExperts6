@@ -1,16 +1,20 @@
 package controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import data.BookingDB;
 import data.CustomerDB;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.Booking;
 import model.Customer;
-import sun.management.Agent;
 
 public class CustomerController {
     @FXML private ResourceBundle resources;
@@ -50,6 +54,20 @@ public class CustomerController {
     @FXML private TextField tfCustEmailAdd;
     @FXML private TextField tfAgentIdAdd;
     @FXML private Button btnAdd;
+    @FXML private TextField tfFilter;
+    @FXML private TableView<Booking> tvBooking;
+    @FXML private TableColumn<Booking, Integer> colBookingId;
+    @FXML private TableColumn<Booking, LocalDate> colBookingDate;
+    @FXML private TableColumn<Booking, String> colBookingNo;
+    @FXML private TableColumn<Booking, Integer> colTravelerCount;
+    @FXML private TableColumn<Booking, Integer> customerId;
+    @FXML private TableColumn<Booking, String> colTripTypeId;
+    @FXML private TableColumn<Booking, Integer> colPackageId;
+
+    @FXML
+    void onActionTfFilter(ActionEvent event) {
+
+    }
 
     @FXML
     void onActionBtnCustomerAdd(ActionEvent event) {
@@ -141,6 +159,24 @@ public class CustomerController {
             tfCustHomePhone.setText(selectedCustomer.getCustHomePhone());
             tfCustBusPhone.setText(selectedCustomer.getCustBusPhone());
             tfCustEmail.setText(selectedCustomer.getCustEmail());
+
+            if(selectedCustomer != null) {
+                int selectedCustId = cbCustomerId.getSelectionModel().getSelectedItem().getCustomerId();
+                ObservableList<Booking> bookings = BookingDB.getBookingByCustomerId(selectedCustId);
+                tvBooking.setItems(bookings);
+            }
+
+
+//
+//                //ObservableList<Booking> bookings = BookingDB.getBookings();
+//            colBookingId.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
+//            colBookingDate.setCellValueFactory(new PropertyValueFactory<>("bookingDate"));
+//            colBookingNo.setCellValueFactory(new PropertyValueFactory<>("bookingNo"));
+//            colTravelerCount.setCellValueFactory(new PropertyValueFactory<>("travelerCount"));
+//            colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+//            colTripTypeId.setCellValueFactory(new PropertyValueFactory<>("tripTypeId"));
+//            colPackageId.setCellValueFactory(new PropertyValueFactory<>("packageId"));
+
         }
     }
 
@@ -159,6 +195,18 @@ public class CustomerController {
         colEmail.setCellValueFactory(new PropertyValueFactory<Customer, String>("custEmail"));
         tvCustomerList.setItems(customers);
 
+        //load data in booking table
+        colBookingId.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
+        colBookingDate.setCellValueFactory(new PropertyValueFactory<>("bookingDate"));
+        colBookingNo.setCellValueFactory(new PropertyValueFactory<>("bookingNo"));
+        colTravelerCount.setCellValueFactory(new PropertyValueFactory<>("travelerCount"));
+        //colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colTripTypeId.setCellValueFactory(new PropertyValueFactory<>("tripTypeId"));
+        //colPackageId.setCellValueFactory(new PropertyValueFactory<>("packageId"));
+
+        //filter data
+        filterTable(customers);
+
         //on cell double click, redirects to edit customer tab and display selected customer data
         tvCustomerList.setRowFactory(tv -> {
             TableRow<Customer> row = new TableRow<>();
@@ -171,6 +219,8 @@ public class CustomerController {
             });
             return row;
         });
+
+
     }
 
     //load data in edit customer combo box
@@ -217,18 +267,31 @@ public class CustomerController {
         tfCustEmail.clear();
     }
 
-    private void clearFieldsAdd() {
-        tfCustFirstNameAdd.clear();
-        tfCustLastNameAdd.clear();
-        tfCustAddress.clear();
-        tfCustCityAdd.clear();
-        tfCustProvAdd.clear();
-        tfCustPostalAdd.clear();
-        tfCustCountryAdd.clear();
-        tfCustHomePhoneAdd.clear();
-        tfCustBusPhoneAdd.clear();
-        tfCustEmailAdd.clear();
-        tfAgentIdAdd.clear();
+    private void filterTable(ObservableList<Customer> customers) {
+        FilteredList<Customer> filteredData = new FilteredList<>(customers, p -> true);
+        tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(customer -> {
+                // If filter text is empty, display all customers.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                //ignores letter case
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (customer.getCustFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                } else if (customer.getCustLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        //wrap filteredlist in a sorted list
+        SortedList<Customer> sortedData = new SortedList<>(filteredData);
+        //bind sortedlist comparator to the tableview comparator
+        sortedData.comparatorProperty().bind(tvCustomerList.comparatorProperty());
+        //add sorted data to the table
+        tvCustomerList.setItems(sortedData);
     }
 }
 

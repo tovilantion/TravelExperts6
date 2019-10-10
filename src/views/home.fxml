@@ -133,7 +133,7 @@
                 </VBox>
             </children>
         </VBox>
-        <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane fx:id="pnlInvoices" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
                 <Pane fx:id="pnlCustomer" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;" />
@@ -235,6 +235,18 @@
                                 <Image url="@../images/icons8_Search_52px.png" />
                             </image>
                         </ImageView>
+                  <Button fx:id="btnClose" layoutX="763.0" layoutY="1.0" mnemonicParsing="false" onAction="#onActionBtnClose" prefHeight="17.0" prefWidth="0.0" style="-fx-background-color: white;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/closeButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </Button>
                     </children>
                 </Pane>
             </children>

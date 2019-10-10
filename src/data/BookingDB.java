@@ -1,9 +1,9 @@
 package data;
 
-import com.sun.org.apache.xerces.internal.impl.io.UCSReader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import model.Booking;
 
 
@@ -83,5 +83,44 @@ public class BookingDB {
         return rowsUpdated;
     }
 
+    //get customer booking id and display in edit customer tab
+    public static ObservableList<Booking> getBookingByCustomerId(int customerId) {
+        ObservableList<Booking> bookings = FXCollections.observableArrayList();
+
+        try {
+            // load driver
+            Class.forName("com.mysql.jdbc.Driver");
+            // get connection
+            Connection connection = ConnectionDB.getConnection();
+            // create statement
+            Statement statement = connection.createStatement();
+            // select query
+            String selectQuery = "SELECT * FROM BOOKINGS WHERE CUSTOMERID = " + customerId;
+
+
+            // execute
+            ResultSet rs = statement.executeQuery(selectQuery);
+            // create new object
+            while (rs.next()) {
+                Booking book = new Booking();
+                book.setBookingId(rs.getInt(1));
+                book.setBookingDate(rs.getDate(2));
+                book.setBookingNo(rs.getString(3));
+                book.setTravelerCount(rs.getInt(4));
+                book.setCustomerId(rs.getInt(5));
+                book.setTripTypeId(rs.getString(6));
+                book.setPackageId(rs.getInt(7));
+                bookings.add(book);
+            }
+            // close connection
+            connection.close();
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR,"Please contact IT", ButtonType.CLOSE);
+            alert.showAndWait();
+        }
+        return bookings;
+    }
 
 }

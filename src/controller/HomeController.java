@@ -33,6 +33,14 @@ public class HomeController {
     @FXML private Pane pnlSuppliers;
     @FXML private Pane pnlDashboard;
     @FXML private VBox pnItems;
+    @FXML private VBox vboxPnlCustomer;
+    @FXML private Button btnClose;
+
+
+    @FXML
+    void onActionBtnClose(ActionEvent event) {
+        System.exit(0);
+    }
 
     @FXML void onActionBtnBookings(ActionEvent event) throws IOException {
         Pane pane = FXMLLoader.load(getClass().getResource("../views/booking.fxml"));

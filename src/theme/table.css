@@ -29,6 +29,7 @@
     -fx-background-color: white;
 }
 
+/*search bar*/
 .text-field
 {
     -fx-background-color: white;
@@ -36,6 +37,9 @@
     -fx-background-radius: 2em;
     -fx-border-color: #e0e0e0 ;
     -fx-border-radius: 2em;
+}
+.text-field:focused{
+    -fx-border-color: #3FE387;
 }
 
 .table-view .column-header,
@@ -69,12 +73,16 @@
 }
 
 .table-cell:focused {
-    -fx-border-color: #FAFCFB;
+    -fx-background-color: #e0e0e0;
 }
 .table-row-cell:hover {
-    -fx-background-color: #3FE387;
+    -fx-background-color: #e0e0e0;
 }
 
-.table-view:hover {
-    -fx-border-color: #3FE387;
-}
+/*.table-view {*/
+/*    -fx-background-color: transparent;*/
+/*}*/
+
+/*.table-view:hover {*/
+/*    -fx-border-color: #3FE387;*/
+/*}*/

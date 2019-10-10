@@ -13,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class AgentController {
 
@@ -40,6 +41,8 @@ public class AgentController {
     @FXML
     private Label lblErrors;
 
+    private double x, y;
+
     @FXML
     void handleButtonAction(MouseEvent event) {
 
@@ -47,17 +50,29 @@ public class AgentController {
 
     @FXML
     void onActionBtnSignIn(ActionEvent event) {
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/home.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.show();
-            Main.stg.close();
+            stage.initStyle(StageStyle.UNDECORATED);
+            root.setOnMousePressed(event1 -> {
+                x = event1.getSceneX();
+                y = event1.getSceneY();
+            });
+            root.setOnMouseDragged(event1 -> {
 
+                stage.setX(event1.getScreenX() - x);
+                stage.setY(event1.getScreenY() - y);
+
+            });
+            Main.stg.close();
+            stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @FXML
