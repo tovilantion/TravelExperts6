@@ -11,8 +11,8 @@ import java.sql.*;
 
 public class BookingDB {
 
-    public static ObservableList<Booking> getBookings(){
-        ObservableList<Booking>bookList = FXCollections.observableArrayList();
+    public static ObservableList<Booking> getBookings() {
+        ObservableList<Booking> bookList = FXCollections.observableArrayList();
         String sql = "SELECT * FROM Bookings";
         try {
             //get connection
@@ -23,16 +23,16 @@ public class BookingDB {
             ResultSet rs = statement.executeQuery(sql);
 
             //loop through each row in resultset and create object with values from rs and add to list
-            while (rs.next()){
-               /* Booking booking = new Booking(
+            while (rs.next()) {
+                Booking booking = new Booking(
                         rs.getInt(1),
-                        rs.getObject(2),
+                        rs.getString(2),
                         rs.getString(3),
                         rs.getInt(4),
                         rs.getInt(5),
                         rs.getString(6),
                         rs.getInt(7));
-                        while (rs.next()) {*/
+                        /*while (rs.next()) {
             Booking book = new Booking();
             book.setBookingId(rs.getInt(1));
             book.setBookingDate(rs.getDate(2));
@@ -41,9 +41,9 @@ public class BookingDB {
             book.setCustomerId(rs.getInt(5));
             book.setTripTypeId(rs.getString(6));
             book.setPackageId(rs.getInt(7));
-
-            //Add booking to the ObservableList
-            bookList.add(book);
+*/
+                //Add booking to the ObservableList
+                bookList.add(booking);
 
             }
             conn.close();
@@ -52,7 +52,6 @@ public class BookingDB {
         }
         return bookList;
     }
-
 
 
     public static int updateBooking(int bookingId, Booking book) {
@@ -81,6 +80,52 @@ public class BookingDB {
             e.printStackTrace();
         }
         return rowsUpdated;
+    }
+
+    public static int deleteBooking(int bookingId) {
+        int rowsDeleted = 0;
+
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            //delete query
+            String deleteQuery = "DELETE FROM `bookings` WHERE BookingId=?";  //this is original query
+            //   "DELETE  `bookings`, `bookingdetails` FROM `bookings` INNER JOIN `bookingdetails` ON `bookings`.`BookingId` = `bookingdetails`.`BookingId` WHERE `bookings`.`BookingId`= ?";
+/*            Statement st = connection.createStatement();
+            st.addBatch("DELETE FROM `bookingdetails` WHERE BookingId=?");
+            st.addBatch("DELETE FROM `bookings` WHERE BookingId=?");*/
+
+            //   int[] results = st.executeBatch();
+            PreparedStatement statement = connection.prepareStatement(deleteQuery);
+            statement.setInt(1, bookingId);
+            rowsDeleted = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsDeleted;
+
+    }
+
+    public static int addBooking(Booking booking) {
+        int rowsInserted = 0;
+        try {
+            Connection connection = ConnectionDB.getConnection();
+            String insertQuery = "INSERT INTO `bookings`(`BookingDate`, `BookingNo`, " +
+                    "`TravelerCount`, `CustomerId`, `TripTypeId`, `PackageId`) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(insertQuery);
+            statement.setObject(1, booking.getBookingDate());
+            statement.setString(2, booking.getBookingNo());
+            statement.setInt(3, booking.getTravelerCount());
+            statement.setInt(4, booking.getCustomerId());
+            statement.setString(5, booking.getTripTypeId());
+            statement.setInt(6, booking.getPackageId());
+
+
+            rowsInserted = statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowsInserted;
     }
 
     //get customer booking id and display in edit customer tab

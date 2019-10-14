@@ -22,16 +22,16 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="752.0">
                             <children>
-                                <TableView fx:id="tvCustomerList" layoutY="62.0" prefHeight="506.0" prefWidth="792.0" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="62.0">
+                                <TableView fx:id="tvCustomerList" layoutY="62.0" prefHeight="506.0" prefWidth="792.0" style="-fx-border-color: #e0e0e0;" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="62.0">
                                     <columns>
-                                        <TableColumn fx:id="colCustomerId" prefWidth="75.0" text="Id" />
+                                        <TableColumn fx:id="colCustomerId" prefWidth="50.0" text="Id" />
                                         <TableColumn fx:id="colCustFirstName" prefWidth="75.0" text="First Name" />
                                         <TableColumn fx:id="colLastName" prefWidth="75.0" text="Last Name" />
                                         <TableColumn fx:id="colAddress" prefWidth="75.0" text="Address" />
                                         <TableColumn fx:id="colPostal" prefWidth="75.0" text="Postal Code" />
                                         <TableColumn fx:id="colHomePhone" prefWidth="75.0" text="Home Phone" />
                                         <TableColumn fx:id="colBusPhone" prefWidth="75.0" text="Bus Phone" />
-                                        <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+                                        <TableColumn fx:id="colEmail" prefWidth="100.0" text="Email" />
                                     </columns>
                                     <columnResizePolicy>
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

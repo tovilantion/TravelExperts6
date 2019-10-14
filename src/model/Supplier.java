@@ -5,37 +5,53 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Supplier {
 
-    private SimpleIntegerProperty SupplierId;
-    private SimpleStringProperty SupName;
+    private SimpleIntegerProperty supplierId;
+    private SimpleStringProperty supName;
 
-    public Supplier() {
-        SupplierId = new SimpleIntegerProperty();
-        SupName = new SimpleStringProperty();
+    public Supplier(int supplierId, String supName) {
+        this.supplierId = new SimpleIntegerProperty(supplierId);
+        this.supName = new SimpleStringProperty(supName);
     }
 
+    public Supplier(String supName) {
+        this.supName = new SimpleStringProperty(supName);
+    }
+
+    public Supplier(){};
 
 
     public int getSupplierId() {
-        return SupplierId.get();
+        return supplierId.get();
     }
 
     public SimpleIntegerProperty supplierIdProperty() {
-        return SupplierId;
+        return supplierId;
     }
 
     public void setSupplierId(int supplierId) {
-        this.SupplierId.set(supplierId);
+        this.supplierId.set(supplierId);
     }
 
     public String getSupName() {
-        return SupName.get();
+        return supName.get();
     }
 
     public SimpleStringProperty supNameProperty() {
-        return SupName;
+        return supName;
     }
 
     public void setSupName(String supName) {
-        this.SupName.set(supName);
+        this.supName.set(supName);
+    }
+
+/*    @Override
+    public String toString() {
+        return  supplierId + "";
+    }
+}*/
+
+    @Override
+    public String toString() {
+        return String.valueOf(getSupplierId());
     }
 }

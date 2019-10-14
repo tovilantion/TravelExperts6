@@ -8,7 +8,8 @@ import java.sql.Date;
 
 public class Booking {
     private SimpleIntegerProperty bookingId;
-    private SimpleObjectProperty<Date> bookingDate;
+    private SimpleStringProperty bookingDate;
+   // private SimpleObjectProperty<Date> bookingDate;
     private SimpleStringProperty bookingNo;
     private SimpleIntegerProperty travelerCount;
     private SimpleIntegerProperty customerId;
@@ -17,16 +18,43 @@ public class Booking {
 
 
 
-    public Booking() {
-        this.bookingId = new SimpleIntegerProperty();
-        this.bookingDate = new SimpleObjectProperty<>();
-        this.bookingNo = new SimpleStringProperty();
-        this.travelerCount = new SimpleIntegerProperty();
-        this.customerId =new SimpleIntegerProperty();
-        this.tripTypeId = new SimpleStringProperty();
-        this.packageId = new SimpleIntegerProperty();
+    public Booking(int bookingId, String bookingDate, String bookingNo, int travelerCount, int customerId, String tripTypeId, int packageId) {
+        this.bookingId = new SimpleIntegerProperty(bookingId);
+        this.bookingDate = new SimpleStringProperty(bookingDate);
+    //    this.bookingDate = new SimpleObjectProperty<Date>((Date) bookingDate);
+        this.bookingNo = new SimpleStringProperty(bookingNo);
+        this.travelerCount = new SimpleIntegerProperty(travelerCount);
+        this.customerId =new SimpleIntegerProperty(customerId);
+        this.tripTypeId = new SimpleStringProperty(tripTypeId);
+        this.packageId = new SimpleIntegerProperty(packageId);
     }
 
+        public Booking () {};
+
+       public Booking(String bookingDate, String bookingNo, int travelerCount, int customerId, String tripTypeId, int packageId) {
+
+           this.bookingDate = new SimpleStringProperty(bookingDate);
+        //   this.bookingDate = new SimpleObjectProperty<Date>((Date) bookingDate);
+           this.bookingNo = new SimpleStringProperty(bookingNo);
+           this.travelerCount = new SimpleIntegerProperty(travelerCount);
+           this.customerId = new SimpleIntegerProperty(customerId);
+           this.tripTypeId = new SimpleStringProperty(tripTypeId);
+           this.packageId = new SimpleIntegerProperty(packageId);
+       }
+
+    public Booking(SimpleStringProperty bookingDate, SimpleStringProperty bookingNo, SimpleIntegerProperty travelerCount, SimpleIntegerProperty customerId, SimpleStringProperty tripTypeId, SimpleIntegerProperty packageId) {
+
+           this.bookingDate = bookingDate;
+        this.bookingNo = bookingNo;
+        this.travelerCount = travelerCount;
+        this.customerId = customerId;
+        this.tripTypeId = tripTypeId;
+        this.packageId = packageId;
+    }
+
+   /* public Booking(int bookingId, Object bookingDate, String bookingNo, int travelerCount, int customerId, String tripTypeId, int packageId) {
+
+    }*/
 
 
     public int getBookingId() {
@@ -41,16 +69,16 @@ public class Booking {
         this.bookingId.set(bookingId);
     }
 
-    public Object getBookingDate() {
+    public String getBookingDate() {
         return bookingDate.get();
     }
 
-    public SimpleObjectProperty<Date> bookingDateProperty() {
+    public SimpleStringProperty bookingDateProperty() {
         return bookingDate;
     }
 
     public void setBookingDate(Date bookingDate) {
-        this.bookingDate.set(bookingDate);
+        this.bookingDate.set(String.valueOf(bookingDate));
     }
 
 
@@ -113,4 +141,10 @@ public class Booking {
     public void setPackageId(int packageId) {
         this.packageId.set(packageId);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(getBookingId());
+    }
 }
+
