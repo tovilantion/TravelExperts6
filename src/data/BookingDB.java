@@ -147,15 +147,15 @@ public class BookingDB {
             ResultSet rs = statement.executeQuery(selectQuery);
             // create new object
             while (rs.next()) {
-                Booking book = new Booking();
-                book.setBookingId(rs.getInt(1));
-                book.setBookingDate(rs.getDate(2));
-                book.setBookingNo(rs.getString(3));
-                book.setTravelerCount(rs.getInt(4));
-                book.setCustomerId(rs.getInt(5));
-                book.setTripTypeId(rs.getString(6));
-                book.setPackageId(rs.getInt(7));
-                bookings.add(book);
+                Booking booking = new Booking(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getInt(7));
+                bookings.add(booking);
             }
             // close connection
             connection.close();

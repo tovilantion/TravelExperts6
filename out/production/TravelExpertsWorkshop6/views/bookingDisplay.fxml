@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookingDisplayController">
+   <children>
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="9.0" layoutY="53.0" prefHeight="86.0" prefWidth="565.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="31.0" prefWidth="98.0" text="Booking Date">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="86.0" text="Booking No" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="75.0" text="Passengers" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="28.0" prefWidth="67.0" text="Trip Type" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBookingDate" text="Label" GridPane.rowIndex="1" />
+            <Label fx:id="lblBookingNo" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="lblTravelerCount" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="lblTripType" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <Label layoutX="40.0" layoutY="14.0" prefHeight="33.0" prefWidth="111.0" text="Booking ID:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBookingId" layoutX="151.0" layoutY="16.0" prefHeight="29.0" prefWidth="60.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
