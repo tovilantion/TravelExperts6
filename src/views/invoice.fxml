@@ -1,8 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane prefHeight="576.0" prefWidth="792.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InvoiceController">
-
-</AnchorPane>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox prefHeight="576.0" prefWidth="792.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InvoiceController">
+   <children>
+      <StackPane prefHeight="96.0" prefWidth="792.0">
+         <children>
+            <ComboBox fx:id="cbCustomers" onAction="#onActionCbCustomers" prefWidth="150.0" />
+         </children>
+      </StackPane>
+      <HBox prefHeight="174.0" prefWidth="792.0">
+         <children>
+            <VBox id="customerCard" fx:id="customerCard" prefHeight="164.0" prefWidth="428.0" style="-fx-border-color: Black;">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </HBox.margin>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="102.0" text="Bill to:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCustFullName" alignment="CENTER" contentDisplay="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblCustAddress" alignment="CENTER" contentDisplay="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblCustCity" alignment="CENTER" contentDisplay="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblCustCountry" alignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="lblCustPostalCode" alignment="CENTER" contentDisplay="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="AgentCard" prefHeight="174.0" prefWidth="427.0" style="-fx-border-color: Black;">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="bookingsScroll" prefHeight="337.0" prefWidth="792.0">
+         <content>
+            <VBox fx:id="bookingsBox" prefHeight="348.0" prefWidth="790.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding></VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
