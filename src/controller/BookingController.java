@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
@@ -12,6 +13,7 @@ import java.util.ResourceBundle;
 
 import data.BookingDB;
 
+import data.BookingDetailDB;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Booking;
+import model.BookingDetail;
 import model.Package;
 
 
@@ -55,7 +58,15 @@ public class BookingController {
     @FXML private TextField tfPkgIdAdd;
     @FXML private TextField tfBookingIdAdd;
     @FXML private Button btnAdd;
-
+    //Booking Detail Table
+    @FXML private TableView<BookingDetail> tvBookingDetail;
+    @FXML private TableColumn<BookingDetail, Integer> colBookingDetailId;
+    @FXML private TableColumn<BookingDetail, Integer > colItineraryNo;
+    @FXML private TableColumn<BookingDetail, String > colTripStart;
+    @FXML private TableColumn<BookingDetail, String > colTripEnd;
+    @FXML private TableColumn<BookingDetail, String > colDescription;
+    @FXML private TableColumn<BookingDetail, String > colDestination;
+    @FXML private TableColumn<BookingDetail, Double > colBasePrice;
 
 
     @FXML
@@ -150,7 +161,7 @@ public class BookingController {
 
         }
     }*/
-    public void onActionCbBookingId(){ //on click method for ComboBox was loadComboBox  Darren Method
+    public void onActionCbBookingId() throws SQLException { //on click method for ComboBox was loadComboBox  Darren Method
         Booking selectedBooking = (Booking)cbBookingID.getSelectionModel().getSelectedItem();
         cbBookingID.setValue(selectedBooking);
       //  tfPkgName.setText(selectedPackage.getPkgName());
@@ -172,10 +183,28 @@ public class BookingController {
         tfPkgId.setText(String.valueOf(selectedBooking.getPackageId()));
         //taPkgDesc.setText(selectedPackage.getPkgDesc());
 
+        //load booking details to table view
+            colBookingDetailId.setCellValueFactory(cellData -> cellData.getValue().bookingDetailIdProperty().asObject());
+            colItineraryNo.setCellValueFactory(cellData -> cellData.getValue().itineraryNoProperty().asObject());
+            colTripStart.setCellValueFactory(cellData -> cellData.getValue().tripStartProperty());
+            colTripEnd.setCellValueFactory(cellData -> cellData.getValue().tripEndProperty());
+            colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
+            colDestination.setCellValueFactory(cellData -> cellData.getValue().destinationProperty());
+            colBasePrice.setCellValueFactory(cellData -> cellData.getValue().basePriceProperty().asObject());
+        //load booking details to table view on bookingid combobox selection
+            if(selectedBooking != null){
+            //get bookingId
+            int selectedBookindId = cbBookingID.getSelectionModel().getSelectedItem().getBookingId();
+            ObservableList<BookingDetail> bookingDetails = BookingDetailDB.getBookingDetailsByBookingId(selectedBookindId);
+            tvBookingDetail.setItems(bookingDetails);
+
+        }
     }//end loadComboBox
     @FXML void initialize() {
 
         loadBookings();
+
+
 
         ObservableList<Booking> bookings = BookingDB.getBookings();
         colBookingId.setCellValueFactory(cellData -> cellData.getValue().bookingIdProperty().asObject());

@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import model.Customer;
 import model.Package;
+import model.Supplier;
 
 import java.awt.event.ActionEvent;
 import java.math.BigDecimal;
@@ -163,8 +164,6 @@ public class PackageDB {
             e.printStackTrace();
         }
 
-
     }
-
 
 }

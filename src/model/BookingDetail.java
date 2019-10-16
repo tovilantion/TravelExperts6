@@ -49,6 +49,16 @@ public class BookingDetail {
         this.productSupplierId = new SimpleIntegerProperty(productSupplierId);
     }
 
+    public BookingDetail(int bookingDetailId, int itineraryNo, String tripStart, String tripEnd, String destination, String description, double basePrice) {
+        this.bookingDetailId = new SimpleIntegerProperty(bookingDetailId);
+        this.itineraryNo =new SimpleIntegerProperty(itineraryNo);
+        this.tripStart = new SimpleStringProperty(tripStart);
+        this.tripEnd = new SimpleStringProperty(tripEnd);
+        this.destination = new SimpleStringProperty(destination);
+        this.description = new SimpleStringProperty(description);
+        this.basePrice = new SimpleDoubleProperty(basePrice);
+    }
+
     public BookingDetail() {
     }
 
