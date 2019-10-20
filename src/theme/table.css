@@ -43,55 +43,70 @@
 
 }
 .text-field:focused{
-    -fx-border-color: #3FE387;
+    -fx-border-color: #6D6875;
 }
 
-.table-view .column-header,
-.table-view .column-header .filler,
-.table-view .column-header-background .filler
-{
-    /*-fx-stroke: transparent;*/
-    -fx-size:50;
-    -fx-alignment: CENTER ;
-    -fx-text-alignment: center;
-    -fx-background-color: white;
-}
+/*.table-view .column-header,*/
+/*.table-view .column-header .filler,*/
+/*.table-view .column-header-background .filler*/
+/*{*/
+/*    !*-fx-stroke: transparent;*!*/
+/*    -fx-size:50;*/
+/*    -fx-alignment: CENTER ;*/
+/*    -fx-text-alignment: center;*/
+/*    -fx-background-color: white;*/
+/*}*/
 .table-row-cell:filled:hover
 {
-    -fx-size:50;
-    -fx-alignment: CENTER;
-    -fx-text-alignment: center;
+    /*-fx-size:50;*/
+    /*-fx-alignment: CENTER;*/
+    /*-fx-text-alignment: center;*/
     -fx-background-color: #e0e0e0;
 }
 .table-view:row-selection
 {
-    /*-fx-background-color: transparent;*/
+    /*-fx-background-color: #00ceb2*/
     /*-fx-text-fill: white;*/
     /*-fx-alignment: CENTER;*/
     /*-fx-text-alignment: center;*/
 }
 
-.table-cell:filled {
-    -fx-background-color: white;
-    -fx-cell-size: 58px;
-}
+/*.table-cell:filled {*/
+/*    -fx-background-color: white;*/
+/*    -fx-cell-size: 58px;*/
+/*}*/
 
 .table-view .table-column
 {
     -fx-text-alignment: center;
     -fx-alignment: CENTER;
 }
-
-.table-cell:focused {
-    /*-fx-background-color: #e0e0e0;*/
-}
-.table-row-cell:hover {
-    -fx-background-color: #e0e0e0;
+.table-view {
+    -fx-table-cell-border-color: transparent;
 }
 
-/*.table-view {*/
-/*    -fx-background-color: transparent;*/
+/*.table-view:focused{*/
+/*    -fx-border-color: #6D6875;*/
 /*}*/
+
+.table-view:focused .table-row-cell:focused {
+    /*-fx-border-color: derive(-fx-base, 20%);*/
+    /*-fx-border-color: #0093ff;*/
+    -fx-background-insets: 0 0 0 0;
+    -fx-table-cell-border-color: transparent;
+}
+.table-row-cell:focused {
+     /*-fx-background-color: #00ceb2;*/
+     /*-fx-border-color: #00ceb2;*/
+     /*-fx-table-cell-border-color:#00ceb2;*/
+ }
+/*.table-row-cell:filled:hover {*/
+/*    -fx-background-color: #e0e0e0;*/
+/*}*/
+
+.table-view {
+    -fx-border-color: #e0e0e0;
+}
 
 /*.table-view:hover {*/
 /*    -fx-border-color: #3FE387;*/

@@ -23,7 +23,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="694.0">
                             <children>
-                                <TableView fx:id="tvBookingList" layoutY="-2.0" prefHeight="400.0" prefWidth="846.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0;" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="62.0">
+                                <TableView fx:id="tvBookingList" layoutX="23.0" layoutY="100.0" prefHeight="400.0" prefWidth="846.0" style="-fx-background-color: white;" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="100.0">
                                     <columns>
                                         <TableColumn fx:id="colBookingId" prefWidth="75.0" text="Booking Id" />
                                         <TableColumn fx:id="colBookingDate" prefWidth="75.0" text="Booking Date" />
@@ -38,7 +38,7 @@
                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                     </columnResizePolicy>
                                 </TableView>
-                        <TextField fx:id="tfFilter" layoutX="24.0" layoutY="24.0" promptText="search" stylesheets="@../theme/table.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="20.0" />
+                        <TextField fx:id="tfFilter" layoutX="24.0" layoutY="24.0" stylesheets="@../theme/table.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="40.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -47,166 +47,106 @@
                     <content>
                         <AnchorPane prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                             <children>
-                                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="65.0" prefHeight="212.0" prefWidth="461.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0">
-                                    <children>
-                                        <VBox alignment="TOP_RIGHT" prefHeight="384.0" prefWidth="109.0" spacing="3.0">
-                                            <children>
-                                                <Label text="Select Booking Id:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
+                                  <VBox alignment="TOP_RIGHT" layoutX="269.0" layoutY="70.0" prefHeight="186.0" prefWidth="109.0" spacing="20.0">
+                                      <children>
+                                          <Label text="Select Booking Id:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" />
+                                              </VBox.margin>
+                                          </Label>
 
-                                                <Label text="Booking Date:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="Booking No:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="Traveler Count:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="Customer ID:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="Trip ID:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label text="Package ID:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets top="5.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox prefHeight="382.0" prefWidth="117.0">
-                                            <children>
-                                                <ComboBox fx:id="cbBookingID" onAction="#onActionCbBookingId" prefWidth="150.0">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </ComboBox>
-                                                <DatePicker fx:id="dpBookingDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
-                                          <!--     &lt;!&ndash; <TextField fx:id="tfBookingDate" disable="true" editable="false">
-                                                    <VBox.margin>
+                                          <Label text="Booking Date:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" top="4.0" />
+                                              </VBox.margin>
+                                          </Label>
+                                          <Label text="Booking No:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" top="3.0" />
+                                              </VBox.margin>
+                                          </Label>
+                                          <Label text="Traveler Count:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" top="4.0" />
+                                              </VBox.margin>
+                                          </Label>
+                                      </children>
+                                  </VBox>
+                                  <VBox layoutX="378.0" layoutY="68.0" prefHeight="197.0" prefWidth="117.0" spacing="20.0">
+                                      <children>
+                                          <ComboBox fx:id="cbBookingID" onAction="#onActionCbBookingId" prefWidth="150.0">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" />
+                                              </VBox.margin>
+                                          </ComboBox>
+                                          <DatePicker fx:id="dpBookingDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
+                                    <!--     &lt;!&ndash; <TextField fx:id="tfBookingDate" disable="true" editable="false">
+                                              <VBox.margin>
                                                         <Insets bottom="10.0" />
                                                     </VBox.margin>&ndash;&gt;
                                                 </TextField>-->
-                                                <TextField fx:id="tfBookingNo" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfTravelerCount" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfCustId" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfTripId" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfPkgId" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                            </children>
-                                        </VBox>
-              <!--                          <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="3.0">
-                                            <children>
-                                                <Label alignment="TOP_RIGHT" text="Postal:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" top="34.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label alignment="TOP_RIGHT" text="Country:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label alignment="TOP_RIGHT" text="Home Phone:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label alignment="TOP_RIGHT" text="Business Phone:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label alignment="TOP_RIGHT" text="Email:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets left="30.0" top="5.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="100.0">
-                                            <children>
-                                                <TextField fx:id="tfCustPostal" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfCustCountry" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfCustHomePhone" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfCustBusPhone" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                                <TextField fx:id="tfCustEmail" disable="true" editable="false">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets top="35.0" />
-                                            </HBox.margin>
-                                        </VBox>-->
-                                    </children>
-                                </HBox>
-                                <Label layoutX="14.0" layoutY="14.0" text="Edit Booking Information">
+                                          <TextField fx:id="tfBookingNo" disable="true" editable="false">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" top="10.0" />
+                                              </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tfTravelerCount" disable="true" editable="false">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" />
+                                              </VBox.margin>
+                                          </TextField>
+                                      </children>
+                                  </VBox>
+                        <VBox alignment="TOP_RIGHT" layoutX="641.0" layoutY="125.0" prefHeight="247.0" prefWidth="85.0" spacing="20.0" AnchorPane.topAnchor="125.0">
+                           <children>
+                                          <Label text="Customer ID:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" />
+                                              </VBox.margin>
+                                          </Label>
+                                          <Label text="Trip ID:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" top="7.0" />
+                                              </VBox.margin>
+                                          </Label>
+                                          <Label text="Package ID:">
+                                              <VBox.margin>
+                                                  <Insets bottom="15.4" right="5.0" />
+                                              </VBox.margin>
+                                 <padding>
+                                    <Insets top="2.0" />
+                                 </padding>
+                                          </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="726.0" layoutY="125.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.topAnchor="125.0">
+                           <children>
+                                          <TextField fx:id="tfCustId" disable="true" editable="false">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" />
+                                              </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tfTripId" disable="true" editable="false">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" />
+                                              </VBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="tfPkgId" disable="true" editable="false">
+                                              <VBox.margin>
+                                                  <Insets bottom="10.0" />
+                                              </VBox.margin>
+                                          </TextField>
+                           </children>
+                        </VBox>
+                                <Label layoutX="14.0" layoutY="14.0" text="Edit Booking Information" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="14.0">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="btnEdit" layoutX="120.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" />
-                                <Button fx:id="btnDelete" layoutX="306.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" />
-                                <Button fx:id="btnSave" layoutX="214.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" />
-                        <TableView fx:id="tvBookingDetail" layoutX="24.0" layoutY="392.0" prefHeight="297.0" prefWidth="1110.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                                <Button fx:id="btnEdit" layoutX="844.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" AnchorPane.rightAnchor="170.0" />
+                                <Button fx:id="btnDelete" layoutX="1012.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" AnchorPane.rightAnchor="35.0" />
+                                <Button fx:id="btnSave" layoutX="912.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" AnchorPane.rightAnchor="100.0" />
+                        <TableView fx:id="tvBookingDetail" layoutX="24.0" layoutY="392.0" prefHeight="297.0" prefWidth="1110.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="356.0">
                           <columns>
                             <TableColumn fx:id="colBookingDetailId" prefWidth="75.0" text="Booking Detail Id" />
                             <TableColumn fx:id="colItineraryNo" prefWidth="75.0" text="Itinerary No" />

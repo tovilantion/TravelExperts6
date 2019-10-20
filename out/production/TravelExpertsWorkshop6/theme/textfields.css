@@ -5,5 +5,7 @@
 }
 
 .text-field:focused {
-    -fx-border-color: #3FE387;
+    /*-fx-border-color:#0093ff;*/
+    -fx-border-color:#6D6875;
+
 }

@@ -21,7 +21,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="603.0">
                             <children>
-                                <TableView fx:id="tvPackageList" layoutX="3.0" layoutY="-4.0" prefHeight="377.0" prefWidth="600.0" style="-fx-border-color: #e0e0e0;" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="62.0">
+                                <TableView fx:id="tvPackageList" layoutX="3.0" layoutY="-4.0" prefHeight="377.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@../theme/table.css" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="100.0">
                                     <columns>
                                         <TableColumn fx:id="colPackageId" prefWidth="100" text="ID" />
                                         <TableColumn fx:id="colPkgName" prefWidth="100.0" text="Name" />
@@ -40,7 +40,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                                 </TableView>
-                        <TextField fx:id="tfFilter" layoutX="24.0" layoutY="24.0" promptText="search" stylesheets="@../theme/table.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="930.0" AnchorPane.topAnchor="20.0" />
+                        <TextField fx:id="tfFilter" layoutX="24.0" layoutY="24.0" stylesheets="@../theme/table.css" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="40.0" />
                             </children>
                         </AnchorPane>
                     </content>
