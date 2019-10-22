@@ -71,15 +71,18 @@
                                               </VBox.margin>
                                           </Label>
                                       </children>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
                                   </VBox>
-                                  <VBox layoutX="378.0" layoutY="68.0" prefHeight="197.0" prefWidth="117.0" spacing="20.0">
+                                  <VBox layoutX="378.0" layoutY="68.0" prefHeight="200.0" prefWidth="224.0" spacing="20.0">
                                       <children>
                                           <ComboBox fx:id="cbBookingID" onAction="#onActionCbBookingId" prefWidth="150.0">
                                               <VBox.margin>
                                                   <Insets bottom="10.0" />
                                               </VBox.margin>
                                           </ComboBox>
-                                          <DatePicker fx:id="dpBookingDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
+                                          <DatePicker fx:id="dpBookingDate" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="226.0" />
                                     <!--     &lt;!&ndash; <TextField fx:id="tfBookingDate" disable="true" editable="false">
                                               <VBox.margin>
                                                         <Insets bottom="10.0" />
@@ -97,7 +100,7 @@
                                           </TextField>
                                       </children>
                                   </VBox>
-                        <VBox alignment="TOP_RIGHT" layoutX="641.0" layoutY="125.0" prefHeight="247.0" prefWidth="85.0" spacing="20.0" AnchorPane.topAnchor="125.0">
+                        <VBox alignment="TOP_RIGHT" layoutX="555.0" layoutY="125.0" prefHeight="247.0" prefWidth="171.0" spacing="20.0" AnchorPane.topAnchor="125.0">
                            <children>
                                           <Label text="Customer ID:">
                                               <VBox.margin>
@@ -118,8 +121,11 @@
                                  </padding>
                                           </Label>
                            </children>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
                         </VBox>
-                        <VBox layoutX="726.0" layoutY="125.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.topAnchor="125.0">
+                        <VBox layoutX="726.0" layoutY="125.0" prefHeight="200.0" prefWidth="254.0" spacing="20.0" AnchorPane.topAnchor="125.0">
                            <children>
                                           <TextField fx:id="tfCustId" disable="true" editable="false">
                                               <VBox.margin>
@@ -143,10 +149,10 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="btnEdit" layoutX="844.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" AnchorPane.rightAnchor="170.0" />
-                                <Button fx:id="btnDelete" layoutX="1012.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" AnchorPane.rightAnchor="35.0" />
-                                <Button fx:id="btnSave" layoutX="912.0" layoutY="13.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" AnchorPane.rightAnchor="100.0" />
-                        <TableView fx:id="tvBookingDetail" layoutX="24.0" layoutY="392.0" prefHeight="297.0" prefWidth="1110.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="356.0">
+                                <Button fx:id="btnEdit" layoutX="822.0" layoutY="23.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Edit" AnchorPane.rightAnchor="238.0" />
+                                <Button fx:id="btnDelete" layoutX="1025.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FF605C;" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="35.0" />
+                                <Button fx:id="btnSave" layoutX="923.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Save" AnchorPane.rightAnchor="137.0" />
+                        <TableView fx:id="tvBookingDetail" layoutX="24.0" layoutY="294.0" prefHeight="339.0" prefWidth="1070.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="294.0">
                           <columns>
                             <TableColumn fx:id="colBookingDetailId" prefWidth="75.0" text="Booking Detail Id" />
                             <TableColumn fx:id="colItineraryNo" prefWidth="75.0" text="Itinerary No" />
@@ -167,7 +173,7 @@
                     <content>
                         <AnchorPane prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                             <children>
-                                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="65.0" prefHeight="212.0" prefWidth="461.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0">
+                                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="65.0" prefHeight="215.0" prefWidth="939.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="65.0">
                                     <children>
                                         <VBox alignment="TOP_RIGHT" prefHeight="384.0" prefWidth="109.0" spacing="3.0">
                                             <children>
@@ -206,8 +212,11 @@
                                             <HBox.margin>
                                                 <Insets top="5.0" />
                                             </HBox.margin>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                                         </VBox>
-                                        <VBox prefHeight="382.0" prefWidth="117.0">
+                                        <VBox prefHeight="215.0" prefWidth="282.0">
                                             <children>
 
                                                 <DatePicker fx:id="dpBookingDateAdd" layoutX="173.0" layoutY="200.0" prefHeight="25.0" prefWidth="148.0" />
@@ -303,7 +312,7 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                <Button fx:id="btnAdd" layoutX="261.0" layoutY="277.0" mnemonicParsing="false" onAction="#onActionBtnBookingAdd" prefHeight="30.0" prefWidth="54.0" text="Save" />
+                                <Button fx:id="btnAdd" layoutX="620.0" layoutY="301.0" mnemonicParsing="false" onAction="#onActionBtnBookingAdd" prefHeight="30.0" prefWidth="54.0" text="Save" />
                             </children></AnchorPane>
                     </content>
                 </Tab>

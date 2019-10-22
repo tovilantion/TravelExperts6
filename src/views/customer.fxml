@@ -48,7 +48,7 @@
                             <children>
                         <HBox layoutX="10.0" layoutY="73.0" prefHeight="120.0" prefWidth="1120.0" AnchorPane.bottomAnchor="400.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="73.0">
                            <children>
-                              <VBox alignment="TOP_RIGHT" prefHeight="384.0" prefWidth="120.0" spacing="3.0">
+                              <VBox alignment="TOP_RIGHT" prefHeight="225.0" prefWidth="314.0" spacing="3.0">
                                  <children>
                                     <Label text="First Name:">
                                        <VBox.margin>
@@ -70,12 +70,20 @@
                                           <Insets bottom="15.4" right="5.0" />
                                        </VBox.margin>
                                     </Label>
+                                    <Label text="City:">
+                                       <VBox.margin>
+                                          <Insets bottom="15.4" right="5.0" />
+                                       </VBox.margin>
+                                    </Label>
                                  </children>
                                  <HBox.margin>
                                     <Insets top="5.0" />
                                  </HBox.margin>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                               </VBox>
-                                      <VBox prefHeight="382.0" prefWidth="150.0">
+                                      <VBox prefHeight="230.0" prefWidth="199.0">
                                           <children>
                                               <TextField fx:id="tfCustFirstName" disable="true" editable="false" prefWidth="120.0" stylesheets="@../theme/textfields.css">
                                                   <VBox.margin>
@@ -97,18 +105,18 @@
                                                       <Insets bottom="10.0" />
                                                   </VBox.margin>
                                               </TextField>
+                                              <TextField fx:id="tfCustCity" disable="true" editable="false" stylesheets="@../theme/textfields.css">
+                                                  <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                  </VBox.margin>
+                                              </TextField>
                                           </children>
                                       </VBox>
                               <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="200.0" spacing="3.0">
                                  <children>
-                                    <Label text="City:">
-                                       <VBox.margin>
-                                          <Insets bottom="15.4" right="5.0" top="45.0" />
-                                       </VBox.margin>
-                                    </Label>
                                     <Label text="Province:">
                                        <VBox.margin>
-                                          <Insets bottom="15.4" right="5.0" />
+                                          <Insets bottom="15.4" right="5.0" top="35.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label alignment="TOP_RIGHT" text="Postal:">
@@ -116,38 +124,9 @@
                                           <Insets bottom="15.4" right="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" top="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="150.0">
-                                 <children>
-                                              <TextField fx:id="tfCustCity" disable="true" editable="false" stylesheets="@../theme/textfields.css">
-                                                  <VBox.margin>
-                                                      <Insets bottom="10.0" top="10.0" />
-                                                  </VBox.margin>
-                                              </TextField>
-                                              <TextField fx:id="tfCustProv" disable="true" editable="false" stylesheets="@../theme/textfields.css">
-                                                  <VBox.margin>
-                                                      <Insets bottom="10.0" />
-                                                  </VBox.margin>
-                                              </TextField>
-                                              <TextField fx:id="tfCustPostal" disable="true" editable="false" stylesheets="@../theme/textfields.css">
-                                                  <VBox.margin>
-                                                      <Insets bottom="10.0" />
-                                                  </VBox.margin>
-                                              </TextField>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets top="35.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
                                     <Label alignment="TOP_RIGHT" text="Home Phone:">
                                        <VBox.margin>
-                                          <Insets bottom="15.4" right="5.0" top="45.0" />
+                                          <Insets bottom="15.4" right="5.0" />
                                        </VBox.margin>
                                     </Label>
                                     <Label alignment="TOP_RIGHT" text="Business Phone:">
@@ -164,12 +143,25 @@
                                  <HBox.margin>
                                     <Insets left="30.0" top="5.0" />
                                  </HBox.margin>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                               </VBox>
-                              <VBox prefHeight="212.0" prefWidth="150.0">
+                              <VBox prefHeight="195.0" prefWidth="193.0">
                                  <children>
+                                              <TextField fx:id="tfCustProv" disable="true" editable="false" stylesheets="@../theme/textfields.css">
+                                                  <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                  </VBox.margin>
+                                              </TextField>
+                                              <TextField fx:id="tfCustPostal" disable="true" editable="false" stylesheets="@../theme/textfields.css">
+                                                  <VBox.margin>
+                                                      <Insets bottom="10.0" />
+                                                  </VBox.margin>
+                                              </TextField>
                                               <TextField fx:id="tfCustHomePhone" disable="true" editable="false" stylesheets="@../theme/textfields.css">
                                                   <VBox.margin>
-                                                      <Insets bottom="10.0" top="45.0" />
+                                                      <Insets bottom="10.0" />
                                                   </VBox.margin>
                                               </TextField>
                                               <TextField fx:id="tfCustBusPhone" disable="true" editable="false" stylesheets="@../theme/textfields.css">
@@ -183,18 +175,22 @@
                                                   </VBox.margin>
                                               </TextField>
                                  </children>
+                                 <HBox.margin>
+                                    <Insets top="35.0" />
+                                 </HBox.margin>
                               </VBox>
+                              <VBox prefHeight="212.0" prefWidth="150.0" />
                            </children>
                         </HBox>
-                        <Label layoutX="15.0" layoutY="-14.0" prefHeight="84.0" prefWidth="247.0" text="Edit Customer Information" AnchorPane.bottomAnchor="598.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="858.0" AnchorPane.topAnchor="10.0">
+                        <Label layoutX="15.0" layoutY="80.0" prefHeight="27.0" prefWidth="247.0" text="Edit Customer Information" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="858.0" AnchorPane.topAnchor="25.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnEdit" layoutX="961.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="49.0" text="Edit" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="10.0" />
-                        <Button fx:id="btnDelete" layoutX="1064.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="61.0" text="Delete" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="10.0" />
-                        <Button fx:id="btnSave" layoutX="1010.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="54.0" text="Save" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-                        <TableView fx:id="tvBooking" layoutX="15.0" layoutY="327.0" prefHeight="222.0" prefWidth="722.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="327.0">
+                        <Button fx:id="btnEdit" layoutX="820.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Edit" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="24.0" />
+                        <Button fx:id="btnDelete" layoutX="1025.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FF605C;" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="24.0" />
+                        <Button fx:id="btnSave" layoutX="924.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Save" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="24.0" />
+                        <TableView fx:id="tvBooking" layoutX="15.0" layoutY="351.0" prefHeight="332.0" prefWidth="1070.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="351.0">
                           <columns>
                             <TableColumn fx:id="colBookingId" prefWidth="75.0" text="Booking Id" />
                             <TableColumn fx:id="colBookingDate" prefWidth="75.0" text="Booking Date" />
@@ -206,19 +202,19 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Label layoutX="15.0" layoutY="285.0" text="View Customer Bookings " AnchorPane.bottomAnchor="356.0" AnchorPane.leftAnchor="35.0">
+                        <Label layoutX="35.0" layoutY="303.0" text="View Customer Bookings " AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="35.0">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <HBox layoutX="24.0" layoutY="73.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="35.0">
+                        <HBox layoutX="197.0" layoutY="73.0" prefHeight="40.0" prefWidth="279.0" AnchorPane.leftAnchor="197.0">
                            <children>
-                              <Label text="Select Customer Id:">
+                              <Label prefHeight="17.0" prefWidth="192.0" text="Select Customer Id:">
                                  <HBox.margin>
                                     <Insets right="5.0" top="4.0" />
                                  </HBox.margin>
                               </Label>
-                                        <ComboBox fx:id="cbCustomerId" onAction="#onActionCbCustomerId" prefHeight="25.0" prefWidth="70.0" />
+                                        <ComboBox fx:id="cbCustomerId" onAction="#onActionCbCustomerId" prefHeight="25.0" prefWidth="229.0" />
                            </children>
                         </HBox>
                             </children>
@@ -229,9 +225,9 @@
                     <content>
                         <AnchorPane prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                             <children>
-                                <HBox layoutX="10.0" layoutY="113.0" prefHeight="212.0" prefWidth="461.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="113.0">
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="113.0" prefHeight="212.0" prefWidth="461.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="113.0">
                                     <children>
-                                        <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+                                        <VBox alignment="TOP_RIGHT" prefHeight="230.0" prefWidth="97.0" spacing="3.0">
                                             <children>
                                                 <Label text="First Name:">
                                                     <VBox.margin>
@@ -253,12 +249,23 @@
                                                         <Insets bottom="15.4" right="5.0" top="10.0" />
                                                     </VBox.margin>
                                                 </Label>
+                                                <Label text="Province:">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.4" right="5.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
                                             </children>
                                             <HBox.margin>
                                                 <Insets top="5.0" />
                                             </HBox.margin>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                                         </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="125.0">
+                                        <VBox prefHeight="235.0" prefWidth="216.0">
                                             <children>
                                                 <TextField fx:id="tfCustFirstNameAdd" stylesheets="@../theme/textfields.css">
                                                     <VBox.margin>
@@ -280,15 +287,15 @@
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </VBox.margin>
                                                 </TextField>
+                                                <TextField fx:id="tfCustPostalAdd" stylesheets="@../theme/textfields.css">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                </TextField>
                                             </children>
                                         </VBox>
-                                        <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" spacing="3.0">
+                                        <VBox alignment="TOP_RIGHT" prefHeight="230.0" prefWidth="193.0" spacing="3.0">
                                             <children>
-                                                <Label text="Province:">
-                                                    <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
                                                 <Label alignment="TOP_RIGHT" text="Postal:">
                                                     <VBox.margin>
                                                         <Insets bottom="15.4" right="5.0" top="10.0" />
@@ -304,18 +311,26 @@
                                                         <Insets bottom="15.4" right="5.0" top="10.0" />
                                                     </VBox.margin>
                                                 </Label>
+                                                <Label alignment="TOP_RIGHT" text="Business Phone:">
+                                                    <VBox.margin>
+                                                        <Insets top="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <Label alignment="TOP_RIGHT" text="Email:">
+                                                    <VBox.margin>
+                                                        <Insets top="25.0" />
+                                                    </VBox.margin>
+                                                </Label>
                                             </children>
                                             <HBox.margin>
                                                 <Insets left="30.0" top="5.0" />
                                             </HBox.margin>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
                                         </VBox>
-                                        <VBox prefHeight="200.0" prefWidth="125.0">
+                                        <VBox prefHeight="235.0" prefWidth="243.0">
                                             <children>
-                                                <TextField fx:id="tfCustPostalAdd" stylesheets="@../theme/textfields.css">
-                                                    <VBox.margin>
-                                                        <Insets bottom="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </TextField>
                                                 <TextField fx:id="tfCustProvAdd" stylesheets="@../theme/textfields.css">
                                                     <VBox.margin>
                                                         <Insets bottom="10.0" top="10.0" />
@@ -331,34 +346,6 @@
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </VBox.margin>
                                                 </TextField>
-                                            </children>
-                                            <HBox.margin>
-                                                <Insets right="5.0" />
-                                            </HBox.margin>
-                                        </VBox>
-                              <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="125.0" spacing="3.0">
-                                 <children>
-                                                <Label alignment="TOP_RIGHT" text="Business Phone:">
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label alignment="TOP_RIGHT" text="Email:">
-                                                    <VBox.margin>
-                                                        <Insets top="25.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                    <Label alignment="TOP_RIGHT" text="AgentId:">
-                                       <VBox.margin>
-                                          <Insets top="25.0" />
-                                       </VBox.margin></Label>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="30.0" top="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="125.0">
-                                 <children>
                                                 <TextField fx:id="tfCustBusPhoneAdd" stylesheets="@../theme/textfields.css">
                                                     <VBox.margin>
                                                         <Insets top="10.0" />
@@ -369,15 +356,11 @@
                                                         <Insets top="20.0" />
                                                     </VBox.margin>
                                                 </TextField>
-                                    <TextField fx:id="tfAgentIdAdd" stylesheets="@../theme/textfields.css">
-                                       <VBox.margin>
-                                          <Insets top="20.0" />
-                                       </VBox.margin></TextField>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </VBox>
+                                            </children>
+                                            <HBox.margin>
+                                                <Insets right="5.0" />
+                                            </HBox.margin>
+                                        </VBox>
                                     </children>
                                 </HBox>
                                 <HBox layoutX="14.0" layoutY="316.0" prefHeight="33.0" prefWidth="452.0" spacing="150.0" />

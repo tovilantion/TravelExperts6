@@ -1,6 +1,7 @@
-.button
-{
-    -fx-background-color : white;
+
+
+.button:pressed{
+    -fx-background-color: #e0e0e0;
 }
 
 .button:pressed:hover {
@@ -11,6 +12,10 @@
 .button:hover {
     -fx-background-color: #e0e0e0;
     -fx-scale-y: 1.1;
+}
+
+.button{
+    -fx-background-color: white;
 }
 
 .tab{
@@ -47,3 +52,4 @@
     -fx-focus-color: transparent;
     -fx-border-color: transparent;
 }
+
