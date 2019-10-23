@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="631.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InvoiceController">
+<AnchorPane prefHeight="631.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InvoiceController">
    <children>
       <VBox prefHeight="631.0" prefWidth="919.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
@@ -28,12 +28,12 @@
                           <children>
                               <Label prefHeight="17.0" prefWidth="102.0" text="Bill to:">
                                   <font>
-                                      <Font size="22.0" />
+                                      <Font size="18.0" />
                                   </font>
                               </Label>
                               <Label fx:id="lblCustFullName" alignment="CENTER" contentDisplay="CENTER">
                                   <font>
-                                      <Font size="16.0" />
+                                      <Font size="13.0" />
                                   </font>
                                   <VBox.margin>
                                       <Insets />
@@ -44,7 +44,7 @@
                               </Label>
                               <Label fx:id="lblCustAddress" alignment="CENTER" contentDisplay="CENTER">
                                   <font>
-                                      <Font size="14.0" />
+                                      <Font size="13.0" />
                                   </font>
                                   <padding>
                                       <Insets left="20.0" />
@@ -52,7 +52,7 @@
                               </Label>
                               <Label fx:id="lblCustCity" alignment="CENTER" contentDisplay="CENTER">
                                   <font>
-                                      <Font size="14.0" />
+                                      <Font size="13.0" />
                                   </font>
                                   <padding>
                                       <Insets left="20.0" />
@@ -60,7 +60,7 @@
                               </Label>
                               <Label fx:id="lblCustCountry" alignment="CENTER">
                                   <font>
-                                      <Font size="14.0" />
+                                      <Font size="13.0" />
                                   </font>
                                   <padding>
                                       <Insets left="20.0" />
@@ -68,7 +68,7 @@
                               </Label>
                               <Label fx:id="lblCustPostalCode" alignment="CENTER" contentDisplay="CENTER">
                                   <font>
-                                      <Font size="14.0" />
+                                      <Font size="13.0" />
                                   </font>
                                   <VBox.margin>
                                       <Insets />
@@ -89,7 +89,7 @@
                      <children>
                         <Label prefHeight="32.0" prefWidth="192.0" text="Travel Experts">
                            <font>
-                              <Font size="22.0" />
+                              <Font size="18.0" />
                            </font>
                            <VBox.margin>
                               <Insets left="10.0" top="10.0" />
@@ -99,23 +99,23 @@
                            <children>
                               <Label prefHeight="24.0" prefWidth="147.0" text="123 Main Street">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font></Label>
                               <Label prefHeight="24.0" prefWidth="147.0" text="Calgary, AB T1A 1B2">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font></Label>
                               <Label prefHeight="24.0" prefWidth="147.0" text="(403) 111-1111">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font>
                               </Label>
                               <Label prefHeight="24.0" prefWidth="147.0" text="info@travelexperts.com">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="13.0" />
                                  </font></Label>
                            </children>
                            <VBox.margin>
