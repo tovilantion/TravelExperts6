@@ -61,8 +61,8 @@ public class SupplierController {
     @FXML
     void onActionBtnSupplierAdd(ActionEvent event) {
         Supplier supplier = new Supplier(
-                Integer.valueOf(tfSupplierId.getText()),
-                tfSupName.getText());
+                Integer.valueOf(tfSupplierIdAdd.getText()),
+                tfSupNameAdd.getText());
 
         int rowsInserted = SupplierDB.addSupplier(supplier);
         if (rowsInserted == 0) {
