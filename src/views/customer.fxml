@@ -241,7 +241,7 @@
                                                 </Label>
                                                 <Label text="Address:">
                                                     <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" top="10.0" />
+                                                        <Insets bottom="15.4" right="5.0" top="15.0" />
                                                     </VBox.margin>
                                                 </Label>
                                                 <Label text="City:">
@@ -254,6 +254,11 @@
                                                         <Insets bottom="15.4" right="5.0" top="10.0" />
                                                     </VBox.margin>
                                                 </Label>
+                                    <Label text="AgentId:">
+                                       <VBox.margin>
+                                          <Insets bottom="15.4" right="5.0" top="13.0" />
+                                       </VBox.margin>
+                                    </Label>
                                             </children>
                                             <HBox.margin>
                                                 <Insets top="5.0" />
@@ -287,11 +292,16 @@
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </VBox.margin>
                                                 </TextField>
-                                                <TextField fx:id="tfCustPostalAdd" stylesheets="@../theme/textfields.css">
+                                                <TextField fx:id="tfCustProvAdd" stylesheets="@../theme/textfields.css">
                                                     <VBox.margin>
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </VBox.margin>
                                                 </TextField>
+                                    <TextField fx:id="tfAgentIdAdd" stylesheets="@../theme/textfields.css">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
                                             </children>
                                         </VBox>
                                         <VBox alignment="TOP_RIGHT" prefHeight="230.0" prefWidth="193.0" spacing="3.0">
@@ -308,7 +318,7 @@
                                                 </Label>
                                                 <Label alignment="TOP_RIGHT" text="Home Phone:">
                                                     <VBox.margin>
-                                                        <Insets bottom="15.4" right="5.0" top="10.0" />
+                                                        <Insets bottom="15.4" right="5.0" top="15.0" />
                                                     </VBox.margin>
                                                 </Label>
                                                 <Label alignment="TOP_RIGHT" text="Business Phone:">
@@ -331,7 +341,7 @@
                                         </VBox>
                                         <VBox prefHeight="235.0" prefWidth="243.0">
                                             <children>
-                                                <TextField fx:id="tfCustProvAdd" stylesheets="@../theme/textfields.css">
+                                                <TextField fx:id="tfCustPostalAdd" stylesheets="@../theme/textfields.css">
                                                     <VBox.margin>
                                                         <Insets bottom="10.0" top="10.0" />
                                                     </VBox.margin>
@@ -369,7 +379,7 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Label>
-                                  <Button fx:id="btnAdd" layoutX="861.0" layoutY="26.0" mnemonicParsing="false" onAction="#onActionBtnCustomerAdd" prefHeight="30.0" prefWidth="54.0" text="Save" />
+                                  <Button fx:id="btnAdd" layoutX="857.0" layoutY="26.0" mnemonicParsing="false" onAction="#onActionBtnCustomerAdd" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #e0e0e0;" text="Save" />
                         <VBox layoutX="558.0" layoutY="15.0" />
                             </children></AnchorPane>
                     </content>

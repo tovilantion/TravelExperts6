@@ -93,9 +93,10 @@ public class SupplierDB {
         int rowsInserted = 0;
         try {
             Connection connection = ConnectionDB.getConnection();
-            String insertQuery = "INSERT INTO `suppliers`(`SupName`) VALUES (?)";
+            String insertQuery = "INSERT INTO `suppliers`(`SupId`, `SupName`) VALUES (?,?)";
             PreparedStatement statement = connection.prepareStatement(insertQuery);
-            statement.setString(1, supplier.getSupName());
+            statement.setInt(1, supplier.getSupplierId());
+            statement.setString(2,supplier.getSupName());
 
 
             rowsInserted =statement.executeUpdate();

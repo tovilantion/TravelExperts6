@@ -61,11 +61,12 @@ public class SupplierController {
     @FXML
     void onActionBtnSupplierAdd(ActionEvent event) {
         Supplier supplier = new Supplier(
+                Integer.valueOf(tfSupplierId.getText()),
                 tfSupName.getText());
 
         int rowsInserted = SupplierDB.addSupplier(supplier);
         if (rowsInserted == 0) {
-            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add customer");
+            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add supplier");
             alertError.showAndWait();
         } else {
             Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Insert successful");
