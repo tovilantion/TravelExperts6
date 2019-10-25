@@ -203,6 +203,15 @@
                         <Separator layoutX="-17.0" layoutY="-197.0" orientation="VERTICAL" prefHeight="691.0" prefWidth="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="-197.0" />
                      </children>
                   </AnchorPane>
+                  <AnchorPane layoutX="14.0" layoutY="231.0" prefHeight="200.0" prefWidth="1109.0" style="-fx-border-color: #e0e0e0;">
+                     <children>
+                        <ImageView fitHeight="334.0" fitWidth="1184.0" layoutX="29.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="-103.0" AnchorPane.topAnchor="28.0">
+                           <image>
+                              <Image url="@../images/Graph.PNG" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                     </children>
                 </Pane>
             </children>
