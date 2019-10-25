@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import data.BookingDB;
 
 import data.BookingDetailDB;
+import data.PackageDB;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -41,6 +42,7 @@ public class BookingController {
     @FXML private Tab tabEditBooking;
     @FXML private TabPane tpBookings;
     @FXML private ComboBox<Booking> cbBookingID;
+    @FXML private Tab tabBookingList;
   //  @FXML private TextField tfBookingDate;
     @FXML private DatePicker dpBookingDate;
     @FXML private TextField tfBookingNo;
@@ -67,6 +69,15 @@ public class BookingController {
     @FXML private TableColumn<BookingDetail, String > colDescription;
     @FXML private TableColumn<BookingDetail, String > colDestination;
     @FXML private TableColumn<BookingDetail, Double > colBasePrice;
+    //Package Table
+    @FXML private TableView<Package> tvPackages;
+    @FXML private TableColumn<Package, Integer> colPackageId;
+    @FXML private TableColumn<Package, String> colPackageName;
+    @FXML private TableColumn<Package, String> colPackageStart;
+    @FXML private TableColumn<Package, String> colPackageEnd;
+    @FXML private TableColumn<Package, String> colPackageDescription;
+    @FXML private TableColumn<Package, Double> colAgencyCommission;
+    @FXML private TableColumn<Package, Double> colPackageBasePrice;
 
 
     @FXML
@@ -83,11 +94,13 @@ public class BookingController {
               //  Integer.valueOf(tfBookingIdAdd.getText()));
         int rowsInserted = BookingDB.addBooking(booking);
         if (rowsInserted == 0) {
-            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add customer");
+            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add booking");
             alertError.showAndWait();
         } else {
-            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Insert successful");
+            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Booking Added");
             alertSuccess.showAndWait();
+            tpBookings.getSelectionModel().select(tabBookingList);
+            loadBookings();
         }
     }
 
@@ -202,9 +215,27 @@ public class BookingController {
     }//end loadComboBox
     @FXML void initialize() {
 
+//        @FXML private TableView<Package> tvPackages;
+//        @FXML private TableColumn<Package, Integer> colPackageId;
+//        @FXML private TableColumn<Package, String> colPackageName;
+//        @FXML private TableColumn<Package, String> colPackageStart;
+//        @FXML private TableColumn<Package, String> colPackageEnd;
+//        @FXML private TableColumn<Package, String> colPackageDescription;
+//        @FXML private TableColumn<Package, Double> colAgencyCommission;
+//        @FXML private TableColumn<String, Double> colPackageBasePrice;
+        ObservableList<Package> packages = PackageDB.getPackages();
+        colPackageId.setCellValueFactory(new PropertyValueFactory<Package, Integer>("PackageId"));
+        colPackageName.setCellValueFactory(new PropertyValueFactory<Package, String>("PkgName"));
+        colPackageStart.setCellValueFactory(new PropertyValueFactory<Package, String>("PkgStartDate"));
+        colPackageEnd.setCellValueFactory(new PropertyValueFactory<Package, String>("PkgEndDate"));
+        colPackageDescription.setCellValueFactory(new PropertyValueFactory<Package, String>("PkgDesc"));
+        colPackageBasePrice.setCellValueFactory(new PropertyValueFactory<Package, Double>("PkgBasePrice"));
+        colAgencyCommission.setCellValueFactory(new PropertyValueFactory<Package, Double>("PkgAgencyCommission"));
+
+        //Fill TableView
+        tvPackages.setItems(packages);
+
         loadBookings();
-
-
 
         ObservableList<Booking> bookings = BookingDB.getBookings();
         colBookingId.setCellValueFactory(cellData -> cellData.getValue().bookingIdProperty().asObject());
@@ -237,6 +268,16 @@ public class BookingController {
     private void loadBookings() {
         ObservableList<Booking> bookings = BookingDB.getBookings();
         cbBookingID.setItems(bookings);
+
+        ObservableList<Booking> bookingsList = BookingDB.getBookings();
+        colBookingId.setCellValueFactory(cellData -> cellData.getValue().bookingIdProperty().asObject());
+        colBookingDate.setCellValueFactory(cellData -> cellData.getValue().bookingDateProperty());
+        colBookNo.setCellValueFactory(cellData -> cellData.getValue().bookingNoProperty());
+        colTravelerCount.setCellValueFactory(cellData -> cellData.getValue().travelerCountProperty().asObject());
+        colCustId.setCellValueFactory(cellData -> cellData.getValue().customerIdProperty().asObject());
+        colTripId.setCellValueFactory(cellData -> cellData.getValue().tripTypeIdProperty());
+        colPkgId.setCellValueFactory(cellData -> cellData.getValue().packageIdProperty().asObject());
+        tvBookingList.setItems(bookingsList);
     }
 
     //enables text fields

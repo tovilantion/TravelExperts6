@@ -28,7 +28,7 @@
                                 <Insets bottom="10.0" top="50.0" />
                             </VBox.margin>
                         </ImageView>
-                        <Label text="User1" textFill="#616161">
+                        <Label text="Larry Walter" textFill="#616161">
                             <VBox.margin>
                                 <Insets bottom="20.0" />
                             </VBox.margin>
@@ -214,6 +214,78 @@
                   </AnchorPane>
                     </children>
                 </Pane>
+            <Pane fx:id="pnlDashboard1" layoutX="10.0" layoutY="10.0" prefHeight="576.0" prefWidth="752.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="18.0" layoutY="25.0" text="Dashboard" textFill="#616161">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" layoutX="14.0" layoutY="88.0" prefHeight="92.0" prefWidth="1109.0" spacing="50.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #E0E0E0;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="22000" textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total Orders" textFill="#616161" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #E0E0E0;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="1500" textFill="#26bfbc">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total delivered" textFill="#616161" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #E0E0E0;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="1000" textFill="#fa5f7e">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Pending Orders" textFill="#616161" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #E0E0E0;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="780" textFill="#de0000">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Orders on Hold" textFill="#616161" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnClose1" layoutX="763.0" layoutY="1.0" mnemonicParsing="false" onAction="#onActionBtnClose" prefHeight="17.0" prefWidth="0.0" style="-fx-background-color: white;">
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                  </Button>
+                  <AnchorPane layoutY="167.0" prefHeight="494.0" prefWidth="0.0">
+                     <children>
+                        <Separator layoutX="-17.0" layoutY="-197.0" orientation="VERTICAL" prefHeight="691.0" prefWidth="9.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="-197.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="14.0" layoutY="231.0" prefHeight="200.0" prefWidth="1109.0" style="-fx-border-color: #e0e0e0;">
+                     <children>
+                        <ImageView fitHeight="334.0" fitWidth="1184.0" layoutX="29.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="-103.0" AnchorPane.topAnchor="28.0">
+                           <image>
+                              <Image url="@../images/Graph.PNG" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
             </children>
         </StackPane>
       <HBox layoutX="240.0" prefHeight="50.0" prefWidth="159.0" style="-fx-border-color: #e0e0e0; -fx-border-width: 1 0;" AnchorPane.bottomAnchor="660.0" AnchorPane.leftAnchor="241.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
