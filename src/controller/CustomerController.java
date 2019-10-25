@@ -1,11 +1,15 @@
 package controller;
 
+import java.awt.peer.ButtonPeer;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import data.BookingDB;
 import data.CustomerDB;
+import data.CustomerValidation;
+import data.DataValidation;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -19,6 +23,7 @@ import model.Customer;
 public class CustomerController {
     @FXML private ResourceBundle resources;
     @FXML private URL location;
+    @FXML private Tab tabCustomerList;
     @FXML private TableColumn<Customer, Integer> colCustomerId;
     @FXML private TableColumn<Customer, String> colCustFirstName;
     @FXML private TableColumn<Customer, String> colLastName;
@@ -71,25 +76,35 @@ public class CustomerController {
 
     @FXML
     void onActionBtnCustomerAdd(ActionEvent event) {
-        Customer customer = new Customer(
-                tfCustFirstNameAdd.getText(),
-                tfCustLastNameAdd.getText(),
-                tfCustAddressAdd.getText(),
-                tfCustCityAdd.getText(),
-                tfCustProvAdd.getText(),
-                tfCustPostalAdd.getText(),
-                tfCustCountryAdd.getText(),
-                tfCustHomePhoneAdd.getText(),
-                tfCustBusPhoneAdd.getText(),
-                tfCustEmailAdd.getText(),
-                Integer.valueOf(tfAgentIdAdd.getText()));
-        int rowsInserted = CustomerDB.addCustomer(customer);
-        if (rowsInserted == 0) {
-            Alert alertError = new Alert(Alert.AlertType.ERROR, "Failed to add customer");
-            alertError.showAndWait();
-        } else {
-            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Insert successful");
-            alertSuccess.showAndWait();
+        if (IsValidDataForCustomerAdd()) {
+            // confirm to update
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to proceed?",
+                    ButtonType.YES, ButtonType.CANCEL);
+
+            Optional<ButtonType> result = confirm.showAndWait();
+
+            if(result.get() == ButtonType.YES) {
+                Customer customer = new Customer(
+                        tfCustFirstNameAdd.getText(),
+                        tfCustLastNameAdd.getText(),
+                        tfCustAddressAdd.getText(),
+                        tfCustCityAdd.getText(),
+                        tfCustProvAdd.getText(),
+                        tfCustPostalAdd.getText(),
+                        tfCustCountryAdd.getText(),
+                        tfCustHomePhoneAdd.getText(),
+                        tfCustBusPhoneAdd.getText(),
+                        tfCustEmailAdd.getText(),
+                        Integer.valueOf(tfAgentIdAdd.getText()));
+                int rowsInserted = CustomerDB.addCustomer(customer);
+                if (rowsInserted > 0) {
+                    tpCustomers.getSelectionModel().select(tabCustomerList);
+                    loadCustomers();
+
+//                    Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Insert successful");
+//                    alertSuccess.showAndWait();
+                }
+            }
         }
     }
 
@@ -118,27 +133,32 @@ public class CustomerController {
     //Save customer
     @FXML
     void onActionBtnSave(ActionEvent event) {
-        int customerId = cbCustomerId.getSelectionModel().getSelectedItem().getCustomerId();
-        Customer customer = new Customer(
-                tfCustFirstName.getText(),
-                tfCustLastName.getText(),
-                tfCustAddress.getText(),
-                tfCustCity.getText(),
-                tfCustProv.getText(),
-                tfCustPostal.getText(),
-                tfCustCountry.getText(),
-                tfCustHomePhone.getText(),
-                tfCustBusPhone.getText(),
-                tfCustEmail.getText());
-        int rowsUpdated = CustomerDB.updateCustomer(customerId, customer);
-        if (rowsUpdated == 0) {
-            Alert alertError = new Alert(Alert.AlertType.ERROR, "Update failed");
-            alertError.showAndWait();
-        } else {
-            Alert alertSuccess = new Alert(Alert.AlertType.CONFIRMATION, "Update successful");
-            alertSuccess.showAndWait();
-            //on update, reloads data to textfields
-            loadCustomers();
+        if(IsValidDataForCustomerEdit()) {
+            // confirm to update
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to proceed?",
+                    ButtonType.YES, ButtonType.CANCEL);
+
+            Optional<ButtonType> result = confirm.showAndWait();
+
+            if(result.get() == ButtonType.YES) {
+                int customerId = cbCustomerId.getSelectionModel().getSelectedItem().getCustomerId();
+                Customer customer = new Customer(
+                        tfCustFirstName.getText(),
+                        tfCustLastName.getText(),
+                        tfCustAddress.getText(),
+                        tfCustCity.getText(),
+                        tfCustProv.getText(),
+                        tfCustPostal.getText(),
+                        tfCustCountry.getText(),
+                        tfCustHomePhone.getText(),
+                        tfCustBusPhone.getText(),
+                        tfCustEmail.getText());
+                int rowsUpdated = CustomerDB.updateCustomer(customerId, customer);
+                if (rowsUpdated > 0) {
+                    tpCustomers.getSelectionModel().select(tabCustomerList);
+                    loadCustomers();
+                }
+            }
         }
 
     }
@@ -167,22 +187,12 @@ public class CustomerController {
             }
 
 
-//
-//                //ObservableList<Booking> bookings = BookingDB.getBookings();
-//            colBookingId.setCellValueFactory(new PropertyValueFactory<>("bookingId"));
-//            colBookingDate.setCellValueFactory(new PropertyValueFactory<>("bookingDate"));
-//            colBookingNo.setCellValueFactory(new PropertyValueFactory<>("bookingNo"));
-//            colTravelerCount.setCellValueFactory(new PropertyValueFactory<>("travelerCount"));
-//            colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-//            colTripTypeId.setCellValueFactory(new PropertyValueFactory<>("tripTypeId"));
-//            colPackageId.setCellValueFactory(new PropertyValueFactory<>("packageId"));
-
         }
     }
 
     @FXML
     void initialize() {
-        loadCustomers();
+
         //load data in customer list table
         ObservableList<Customer> customers = CustomerDB.getCustomers();
         colCustomerId.setCellValueFactory(new PropertyValueFactory<Customer, Integer>("customerId"));
@@ -203,6 +213,7 @@ public class CustomerController {
         //colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colTripTypeId.setCellValueFactory(new PropertyValueFactory<>("tripTypeId"));
         //colPackageId.setCellValueFactory(new PropertyValueFactory<>("packageId"));
+        loadCustomers();
 
         //filter data
         filterTable(customers);
@@ -225,8 +236,19 @@ public class CustomerController {
 
     //load data in edit customer combo box
     private void loadCustomers() {
+        ObservableList<Customer> customersCB = CustomerDB.getCustomers();
+        cbCustomerId.setItems(customersCB);
+
         ObservableList<Customer> customers = CustomerDB.getCustomers();
-        cbCustomerId.setItems(customers);
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<Customer, Integer>("customerId"));
+        colCustFirstName.setCellValueFactory(new PropertyValueFactory<Customer, String>("custFirstName"));
+        colLastName.setCellValueFactory(new PropertyValueFactory<Customer, String>("custLastName"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<Customer, String>("custAddress"));
+        colPostal.setCellValueFactory(new PropertyValueFactory<Customer, String>("custPostal"));
+        colHomePhone.setCellValueFactory(new PropertyValueFactory<Customer, String>("custHomePhone"));
+        colBusPhone.setCellValueFactory(new PropertyValueFactory<Customer, String>("custBusPhone"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<Customer, String>("custEmail"));
+        tvCustomerList.setItems(customers);
     }
 
     //enables text fields
@@ -293,5 +315,36 @@ public class CustomerController {
         //add sorted data to the table
         tvCustomerList.setItems(sortedData);
     }
+
+    private boolean IsValidDataForCustomerEdit(){
+        return
+                DataValidation.IsPresent(tfCustFirstName, "First Name") &&
+                        DataValidation.IsPresent(tfCustLastName, "Last Name") &&
+                        DataValidation.IsPresent(tfCustAddress, "Address") &&
+                        DataValidation.IsPresent(tfCustCity, "City") &&
+                        DataValidation.IsPresent(tfCustProv, "Province") &&
+                        DataValidation.IsPresent(tfCustPostal, "Postal Code") &&
+                        DataValidation.IsPresent(tfCustCountry, "Country") &&
+                        DataValidation.IsPresent(tfCustHomePhone, "Home Phone") &&
+                        DataValidation.IsPresent(tfCustBusPhone, "Business Phone") &&
+                        DataValidation.IsPresent(tfCustEmail, "Email") &&
+                        CustomerValidation.emailFormat(tfCustEmail, "Email");
+    }
+
+    private boolean IsValidDataForCustomerAdd(){
+        return
+                DataValidation.IsPresent(tfCustFirstNameAdd, "First Name") &&
+                        DataValidation.IsPresent(tfCustLastNameAdd, "Last Name") &&
+                        DataValidation.IsPresent(tfCustAddressAdd, "Address") &&
+                        DataValidation.IsPresent(tfCustCityAdd, "City") &&
+                        DataValidation.IsPresent(tfCustProvAdd, "Province") &&
+                        DataValidation.IsPresent(tfCustPostalAdd, "Postal Code") &&
+                        DataValidation.IsPresent(tfCustCountryAdd, "Country") &&
+                        DataValidation.IsPresent(tfCustHomePhoneAdd, "Home Phone") &&
+                        DataValidation.IsPresent(tfCustBusPhoneAdd, "Business Phone") &&
+                        DataValidation.IsPresent(tfCustEmailAdd, "Email");
+    }
+
+
 }
 

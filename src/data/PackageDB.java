@@ -116,6 +116,8 @@ public class PackageDB {
             alert.showAndWait();
         }else{
             System.out.println("Update success!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Data Saved", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
@@ -158,6 +160,8 @@ public class PackageDB {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Update failed", ButtonType.OK);
                 alert.showAndWait();
             }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Data Saved", ButtonType.OK);
+                alert.showAndWait();
                 System.out.println("Update success!");
             }
         } catch (SQLException | ParseException e) {

@@ -18,7 +18,7 @@
     <children>
         <TabPane fx:id="tpCustomers" accessibleRole="PARENT" layoutY="14.0" prefHeight="561.0" prefWidth="752.0" stylesheets="@../theme/home.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
-                <Tab closable="false" text="Customer List">
+                <Tab fx:id="tabCustomerList" closable="false" text="Customer List">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="491.0" prefWidth="752.0">
                             <children>
@@ -190,7 +190,7 @@
                         <Button fx:id="btnEdit" layoutX="820.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnEdit" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Edit" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="24.0" />
                         <Button fx:id="btnDelete" layoutX="1025.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnDelete" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FF605C;" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="24.0" />
                         <Button fx:id="btnSave" layoutX="924.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionBtnSave" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #e0e0e0;" text="Save" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="24.0" />
-                        <TableView fx:id="tvBooking" layoutX="15.0" layoutY="351.0" prefHeight="332.0" prefWidth="1070.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="351.0">
+                        <TableView fx:id="tvBooking" layoutX="15.0" layoutY="351.0" prefHeight="332.0" prefWidth="1070.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="351.0">
                           <columns>
                             <TableColumn fx:id="colBookingId" prefWidth="75.0" text="Booking Id" />
                             <TableColumn fx:id="colBookingDate" prefWidth="75.0" text="Booking Date" />
